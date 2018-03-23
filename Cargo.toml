@@ -2,6 +2,13 @@
 name = "rdf_translator"
 version = "0.1.0"
 authors = ["Marc-Antoine Arnaud <marc.antoine@nomalab.com>"]
+description = "Automatic conversion form JSON to RDF based on mapping"
+keywords = ["RDF", "json", "Turtle", 'N-Triples']
+license = "MIT"
+repository = "https://github.com/media-io/rdf_translator"
+homepage = "https://github.com/media-io/rdf_translator"
+documentation = "https://docs.rs/rdf_translator"
+readme = "README.md"
 
 [dependencies]
 jsonpath = "0.1.0"
