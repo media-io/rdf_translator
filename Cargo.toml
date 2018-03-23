@@ -1,6 +1,6 @@
 [package]
 name = "rdf_translator"
-version = "0.1.1"
+version = "0.1.2"
 authors = ["Marc-Antoine Arnaud <marc.antoine@nomalab.com>"]
 description = "Automatic conversion form JSON to RDF based on mapping"
 keywords = ["RDF", "json", "Turtle", 'N-Triples']
