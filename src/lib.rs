@@ -39,7 +39,7 @@ mod tests {
     let doc = serde_json::from_str(&video_struct).unwrap();
 
     let mut converter = Converter::new();
-    let mapper = Mapper::load();
+    let mapper = Mapper::load("tests/mapping.json");
 
     mapper.process(doc, &mut converter);
 

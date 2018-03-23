@@ -35,9 +35,9 @@ pub struct Mapper {
 }
 
 impl Mapper {
-  pub fn load() -> Mapper {
+  pub fn load(filename: &str) -> Mapper {
     let mut content = String::new();
-    let mut mapping_file = File::open("tests/mapping.json").unwrap();
+    let mut mapping_file = File::open(filename).unwrap();
     let _ = mapping_file.read_to_string(&mut content).unwrap();
     let mapping: Mapper = serde_json::from_str(&content).unwrap();
 
