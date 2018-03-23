@@ -11,13 +11,16 @@ pub mod converter;
 pub mod definition;
 pub mod mapper;
 
+pub use converter::converter::Converter;
+pub use mapper::loader::Mapper;
+
 #[cfg(test)]
 mod tests {
   #[test]
   fn json_path() {
-    use converter::converter::*;
+    use Converter;
+    use Mapper;
     use serde_json;
-    use mapper::loader::Mapper;
     use std::fs::File;
     use std::io::Read;
 
