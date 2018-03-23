@@ -1,0 +1,13 @@
+@prefix ebucore: <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix default: <urn:ebu:metadata-schema:ebuCore_2012> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsi: <http://www.w3.org/2001/XMLSchema-instance> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+<http://ressources.idfrancetv.fr/medias/3c853005-9172-4fd5-9e90-55f3d0e62df2> ebucore:businessObjectId "3c853005-9172-4fd5-9e90-55f3d0e62df2" ;
+                                                                              ebucore:dateCreated "2018-02-19T19:19:01+01:00" ;
+                                                                              ebucore:dateModified "2018-02-19T19:19:02+01:00" ;
+                                                                              ebucore:description "Toutes les informations de votre région."@fr ;
+                                                                              ebucore:durationNormalPlayTime "PT7M5S"^^<http://www.w3.org/2001/XMLSchema#time> ;
+                                                                              ebucore:hasCreator "sivideo-legacy@francetv.fr" ;
+                                                                              ebucore:title "JT Local 19-20 - Pau Sud Aquitaine"@fr .

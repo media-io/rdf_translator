@@ -1,0 +1,69 @@
+{
+  "objects": [
+    {
+      "label": "http://ressources.idfrancetv.fr/medias/{{$.id}}",
+      "items": [
+        {
+          "predicate": {
+            "namespace": "ebucore",
+            "label": "businessObjectId"
+          },
+          "json_path": "$.id"
+        },
+        {
+          "predicate": {
+            "namespace": "ebucore",
+            "label": "title"
+          },
+          "json_path": "$.title",
+          "language": "fr"
+        },
+        {
+          "predicate": {
+            "namespace": "ebucore",
+            "label": "originalTitle"
+          },
+          "json_path": "$.original_title",
+          "language": "fr"
+        },
+        {
+          "predicate": {
+            "namespace": "ebucore",
+            "label": "description"
+          },
+          "json_path": "$.description",
+          "language": "fr"
+        },
+        {
+          "predicate": {
+            "namespace": "ebucore",
+            "label": "dateModified"
+          },
+          "json_path": "$.updated_at"
+        },
+        {
+          "predicate": {
+            "namespace": "ebucore",
+            "label": "dateCreated"
+          },
+          "json_path": "$.created_at"
+        },
+        {
+          "predicate": {
+            "namespace": "ebucore",
+            "label": "hasCreator"
+          },
+          "json_path": "$.created_by"
+        },
+        {
+          "predicate": {
+            "namespace": "ebucore",
+            "label": "durationNormalPlayTime"
+          },
+          "json_path": "$.duration",
+          "datatype": "http://www.w3.org/2001/XMLSchema#time"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "created_at": "2018-02-19T19:19:01+01:00",
+  "updated_at": "2018-02-19T19:19:02+01:00",
+  "id": "3c853005-9172-4fd5-9e90-55f3d0e62df2",
+  "title": "JT Local 19-20 - Pau Sud Aquitaine",
+  "additional_title": null,
+  "original_title": null,
+  "expected_at": "2018-02-19T19:18:00+01:00",
+  "produced_at": null,
+  "duration": "PT7M5S",
+  "expected_duration": "PT7M",
+  "description": "Toutes les informations de votre région.",
+  "short_description": null,
+  "tags": [],
+  "groups": [
+    {
+      "id": "30fb1120-d363-46ed-a72e-c851770abd20",
+      "label": "JT Local 19-20 - Pau Sud Aquitaine",
+      "season_number": null,
+      "number_of_episodes": null,
+      "description": null,
+      "created_by": "sivideo-legacy@francetv.fr",
+      "created_via": null,
+      "external_ids": {
+        "plurimedia_collection_id": null
+      },
+      "plurimedia_collection_id": null,
+      "images": []
+    }
+  ],
+  "season_number": null,
+  "episode_number": null,
+  "copyright": null,
+  "created_by": "sivideo-legacy@francetv.fr",
+  "created_via": "cron-siva-refer"
+}
