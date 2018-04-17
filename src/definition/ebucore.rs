@@ -1,12 +1,12 @@
 use definition::definition::Definition;
 
-const EBUCORE_NAMESPACE: &'static str = "http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#";
+const EBUCORE_NAMESPACE: &str = "http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#";
 
 #[derive(Debug)]
 pub struct EbuCore {}
 
 impl Definition for EbuCore {
-    fn get_namespace(&self) -> &'static str {
+    fn get_namespace(&self) -> &str {
         EBUCORE_NAMESPACE
     }
 

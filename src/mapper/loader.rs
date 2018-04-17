@@ -48,7 +48,7 @@ fn parse_label(label: &str, document: &Value) -> Vec<String> {
 
     let regex = Regex::new(&expression).unwrap();
 
-    match regex.captures(&label) {
+    match regex.captures(label) {
         Some(captures) => {
             let mut results = vec!["".to_string()];
 
@@ -61,7 +61,7 @@ fn parse_label(label: &str, document: &Value) -> Vec<String> {
                 let c = m.as_str();
 
                 if !(c.starts_with("{{") && c.ends_with("}}")) {
-                    for mut r in results.iter_mut() {
+                    for mut r in &mut results {
                         *r += c;
                     }
                     continue;
@@ -74,18 +74,18 @@ fn parse_label(label: &str, document: &Value) -> Vec<String> {
                 json_path.truncate(len - 2);
 
                 let selector = Selector::new(&json_path).unwrap();
-                let founds: Vec<&Value> = selector.find(&document).collect();
+                let founds: Vec<&Value> = selector.find(document).collect();
 
                 let mut tmp_results = vec![];
 
-                for mut r in results.iter_mut() {
+                for mut r in &mut results {
                     let template = r.clone();
-                    for found in founds.iter() {
-                        match *found {
-                            &Value::String(ref content) => {
-                                tmp_results.push(template.clone() + &content);
+                    for found in &founds {
+                        match *(*found) {
+                            Value::String(ref content) => {
+                                tmp_results.push(template.clone() + content);
                             }
-                            &Value::Number(ref content) => {
+                            Value::Number(ref content) => {
                                 tmp_results.push(
                                     template.clone() + &content.as_f64().unwrap().to_string(),
                                 );
@@ -114,7 +114,7 @@ impl Mapper {
         mapping
     }
 
-    pub fn process(&self, document: Value, converter: &mut Converter) {
+    pub fn process(&self, document: &Value, converter: &mut Converter) {
         for object in &self.objects {
             for subject_label in parse_label(&object.label, &document) {
                 let subject = converter.create_subject(subject_label.as_str());
@@ -123,7 +123,7 @@ impl Mapper {
         }
     }
 
-    pub fn process_relations(
+    fn process_relations(
         &self,
         document: &Value,
         converter: &mut Converter,

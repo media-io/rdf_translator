@@ -1,12 +1,12 @@
 use definition::definition::Definition;
 
-const UNDEFINED_NAMESPACE: &'static str = "";
+const UNDEFINED_NAMESPACE: &str = "";
 
 #[derive(Debug)]
 pub struct Undefined {}
 
 impl Definition for Undefined {
-    fn get_namespace(&self) -> &'static str {
+    fn get_namespace(&self) -> &str {
         UNDEFINED_NAMESPACE
     }
 

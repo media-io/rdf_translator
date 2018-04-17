@@ -80,7 +80,7 @@ impl Converter {
         build!(graph, Definition::get_namespace(&xsi), "xsi");
         build!(graph, "urn:ebu:metadata-schema:ebuCore_2012", "default");
 
-        Converter { graph: graph }
+        Converter { graph }
     }
 
     pub fn create_subject(&mut self, value: &str) -> Node {
@@ -157,5 +157,11 @@ impl Converter {
     pub fn to_turtle_string(&self) -> String {
         let writer = TurtleWriter::new(self.graph.namespaces());
         writer.write_to_string(&self.graph).unwrap()
+    }
+}
+
+impl Default for Converter {
+    fn default() -> Self {
+        Self::new()
     }
 }

@@ -41,7 +41,7 @@ mod tests {
         let mut converter = Converter::new();
         let mapper = Mapper::load("tests/mapping.json");
 
-        mapper.process(doc, &mut converter);
+        mapper.process(&doc, &mut converter);
 
         let content = converter.to_ntriple_string();
         println!("{}", content);
