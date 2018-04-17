@@ -21,6 +21,42 @@
         {
           "predicate": {
             "namespace": "ebucore",
+            "label": "hasIdentifier"
+          },
+          "items": [
+            {
+              "predicate": {
+                "namespace": "rdf",
+                "label": "type"
+              },
+              "label": "http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#Identifier"
+            },
+            {
+              "predicate": {
+                "namespace": "rdfs",
+                "label": "label"
+              },
+              "label": "ISAN"
+            },
+            {
+              "predicate": {
+                "namespace": "ebucore",
+                "label": "hasIdentifierType"
+              },
+              "label": "ISAN"
+            },
+            {
+              "predicate": {
+                "namespace": "ebucore",
+                "label": "identifierValue"
+              },
+              "label": "urn:uuid:{{$.id}}"
+            }
+          ]
+        },
+        {
+          "predicate": {
+            "namespace": "ebucore",
             "label": "originalTitle"
           },
           "label": "{{$.original_title}}",

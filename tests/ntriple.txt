@@ -1,5 +1,10 @@
 <http://ressources.idfrancetv.fr/medias/565f07ac-baa6-4d48-8d60-6b1354207a92> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> "http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#editorialObject" .
 <http://ressources.idfrancetv.fr/medias/565f07ac-baa6-4d48-8d60-6b1354207a92> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#title> "Un livre, un jour"@fr .
+<http://ressources.idfrancetv.fr/medias/565f07ac-baa6-4d48-8d60-6b1354207a92> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#hasIdentifier> _:auto0 .
+_:auto0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> "http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#Identifier" .
+_:auto0 <http://www.w3.org/2000/01/rdf-schema#label> "ISAN" .
+_:auto0 <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#hasIdentifierType> "ISAN" .
+_:auto0 <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#identifierValue> "urn:uuid:565f07ac-baa6-4d48-8d60-6b1354207a92" .
 <http://ressources.idfrancetv.fr/medias/565f07ac-baa6-4d48-8d60-6b1354207a92> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#alternativeTitle> "«Comme un chef», de Benoît Peeters et Aurélia Aurita (Casterman)"@fr .
 <http://ressources.idfrancetv.fr/medias/565f07ac-baa6-4d48-8d60-6b1354207a92> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#synopsis> "Olivier Barrot présente un ouvrage récemment paru en librairie."@fr .
 <http://ressources.idfrancetv.fr/medias/565f07ac-baa6-4d48-8d60-6b1354207a92> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#dateModified> "2018-04-16T16:23:21+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> .

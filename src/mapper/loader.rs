@@ -1,5 +1,6 @@
 use converter::converter::Converter;
 use jsonpath::Selector;
+use rdf::node::Node;
 use regex::Regex;
 use serde_json;
 use serde_json::Value;
@@ -15,10 +16,15 @@ pub struct Predicate {
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Item {
     pub predicate: Predicate,
-    pub label: String,
-    #[serde(default)] pub language: String,
-    #[serde(default)] pub datatype: String,
-    #[serde(default)] pub as_uri: bool,
+    pub label: Option<String>,
+    #[serde(default)]
+    pub language: String,
+    #[serde(default)]
+    pub datatype: String,
+    #[serde(default)]
+    pub as_uri: bool,
+    #[serde(default)]
+    pub items: Vec<Item>,
 }
 
 #[derive(Debug, Serialize, Deserialize)]
@@ -113,51 +119,76 @@ impl Mapper {
     }
 
     pub fn process(&self, document: Value, converter: &mut Converter) {
-        for object in self.objects.iter() {
+        for object in &self.objects {
             for subject_label in parse_label(&object.label, &document) {
                 let subject = converter.create_subject(subject_label.as_str());
-                for item in object.items.iter() {
-                    let object_labels = parse_label(&item.label, &document);
-                    let object_label = object_labels.first();
-
-                    match (
-                        object_label,
-                        item.language.as_str(),
-                        item.datatype.as_str(),
-                        item.as_uri,
-                    ) {
-                        (Some(content), "", "", false) => converter.add(
-                            &subject,
-                            &item.predicate.namespace,
-                            &item.predicate.label,
-                            content,
-                        ),
-                        (Some(content), lang, "", false) => converter.add_with_language(
-                            &subject,
-                            &item.predicate.namespace,
-                            &item.predicate.label,
-                            content,
-                            lang,
-                        ),
-                        (Some(content), "", datatype, false) => converter.add_with_datatype(
-                            &subject,
-                            &item.predicate.namespace,
-                            &item.predicate.label,
-                            content,
-                            datatype,
-                        ),
-
-                        (Some(content), "", "", true) => converter.add_uri(
-                            &subject,
-                            &item.predicate.namespace,
-                            &item.predicate.label,
-                            content,
-                        ),
-                        _ => {}
-                    }
-                }
+                self.process_relations(&document, converter, &subject, &object.items)
             }
         }
+    }
+
+    pub fn process_relations(&self, document: &Value, converter: &mut Converter, subject: &Node, items: &Vec<Item>) {
+
+        for item in items.iter() {
+            let label = item.label.to_owned();
+            if label.is_none() {
+                let child_subject = converter.create_blank_node();
+                converter.add_blank(
+                    &subject,
+                    &item.predicate.namespace,
+                    &item.predicate.label,
+                    child_subject.clone(),
+                );
+                self.process_relations(document, converter, &child_subject, &item.items);
+                continue;
+            }
+
+            let object_labels = parse_label(&label.unwrap(), &document);
+            let object_label = object_labels.first();
+
+            if object_label.is_none() {
+                continue;
+            }
+
+            let content = object_label.unwrap();
+
+            match (
+                item.language.as_str(),
+                item.datatype.as_str(),
+                item.as_uri,
+            ) {
+                ("", "", false) => converter.add(
+                    &subject,
+                    &item.predicate.namespace,
+                    &item.predicate.label,
+                    content,
+                ),
+                (lang, "", false) => converter.add_with_language(
+                    &subject,
+                    &item.predicate.namespace,
+                    &item.predicate.label,
+                    content,
+                    lang,
+                ),
+                ("", datatype, false) => converter.add_with_datatype(
+                    &subject,
+                    &item.predicate.namespace,
+                    &item.predicate.label,
+                    content,
+                    datatype,
+                ),
+
+                ("", "", true) => converter.add_uri(
+                    &subject,
+                    &item.predicate.namespace,
+                    &item.predicate.label,
+                    content,
+                ),
+                _ => {}
+            }
+        }
+
+
     }
 }
 

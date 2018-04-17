@@ -28,9 +28,8 @@ macro_rules! add {
   (definition => $definition:expr, $graph:expr, $subject:expr, $label:expr, $object:block) => ({
     let predicate_namespace = $definition;
     let predicate = build!(node => $graph, &predicate_namespace, $label);
-    let object = $object;
 
-    let triple = Triple::new(&$subject, &predicate, &object);
+    let triple = Triple::new(&$subject, &predicate, &$object);
     $graph.add_triple(&triple);
   });
   ($namespace:expr, $graph:expr, $subject:expr, $label:expr, $object:block) => ({
@@ -85,14 +84,21 @@ impl Converter {
     }
 
     pub fn create_subject(&mut self, value: &str) -> Node {
-        let subject = self.graph.create_uri_node(&Uri::new(value.to_string()));
-        subject
+        self.graph.create_uri_node(&Uri::new(value.to_string()))
+    }
+
+    pub fn create_blank_node(&mut self) -> Node {
+        self.graph.create_blank_node()
     }
 
     pub fn add(&mut self, subject: &Node, namespace: &Option<String>, label: &str, content: &str) {
         add!(namespace, self.graph, subject, label, {
             self.graph.create_literal_node(content.to_string())
         });
+    }
+
+    pub fn add_blank(&mut self, subject: &Node, namespace: &Option<String>, label: &str, blank_node: Node) {
+        add!(namespace, self.graph, subject, label, {blank_node});
     }
 
     pub fn add_with_language(

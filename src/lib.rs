@@ -46,7 +46,6 @@ mod tests {
         let content = converter.to_ntriple_string();
         println!("{}", content);
         assert!(content == ntriple_struct);
-
         // let _content = converter.to_turtle_string();
     }
 }
