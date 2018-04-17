@@ -97,8 +97,14 @@ impl Converter {
         });
     }
 
-    pub fn add_blank(&mut self, subject: &Node, namespace: &Option<String>, label: &str, blank_node: Node) {
-        add!(namespace, self.graph, subject, label, {blank_node});
+    pub fn add_blank(
+        &mut self,
+        subject: &Node,
+        namespace: &Option<String>,
+        label: &str,
+        blank_node: Node,
+    ) {
+        add!(namespace, self.graph, subject, label, { blank_node });
     }
 
     pub fn add_with_language(

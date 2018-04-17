@@ -17,14 +17,10 @@ pub struct Predicate {
 pub struct Item {
     pub predicate: Predicate,
     pub label: Option<String>,
-    #[serde(default)]
-    pub language: String,
-    #[serde(default)]
-    pub datatype: String,
-    #[serde(default)]
-    pub as_uri: bool,
-    #[serde(default)]
-    pub items: Vec<Item>,
+    #[serde(default)] pub language: String,
+    #[serde(default)] pub datatype: String,
+    #[serde(default)] pub as_uri: bool,
+    #[serde(default)] pub items: Vec<Item>,
 }
 
 #[derive(Debug, Serialize, Deserialize)]
@@ -127,8 +123,13 @@ impl Mapper {
         }
     }
 
-    pub fn process_relations(&self, document: &Value, converter: &mut Converter, subject: &Node, items: &Vec<Item>) {
-
+    pub fn process_relations(
+        &self,
+        document: &Value,
+        converter: &mut Converter,
+        subject: &Node,
+        items: &Vec<Item>,
+    ) {
         for item in items.iter() {
             let label = item.label.to_owned();
             if label.is_none() {
@@ -152,11 +153,7 @@ impl Mapper {
 
             let content = object_label.unwrap();
 
-            match (
-                item.language.as_str(),
-                item.datatype.as_str(),
-                item.as_uri,
-            ) {
+            match (item.language.as_str(), item.datatype.as_str(), item.as_uri) {
                 ("", "", false) => converter.add(
                     &subject,
                     &item.predicate.namespace,
@@ -187,8 +184,6 @@ impl Mapper {
                 _ => {}
             }
         }
-
-
     }
 }
 
