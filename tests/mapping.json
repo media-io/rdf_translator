@@ -5,17 +5,17 @@
       "items": [
         {
           "predicate": {
-            "namespace": "ebucore",
-            "label": "businessObjectId"
+            "namespace": "rdf",
+            "label": "type"
           },
-          "json_path": "$.id"
+          "label": "http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#editorialObject"
         },
         {
           "predicate": {
             "namespace": "ebucore",
             "label": "title"
           },
-          "json_path": "$.title",
+          "label": "{{$.title}}",
           "language": "fr"
         },
         {
@@ -23,15 +23,31 @@
             "namespace": "ebucore",
             "label": "originalTitle"
           },
-          "json_path": "$.original_title",
+          "label": "{{$.original_title}}",
           "language": "fr"
         },
         {
           "predicate": {
             "namespace": "ebucore",
-            "label": "description"
+            "label": "alternativeTitle"
           },
-          "json_path": "$.description",
+          "label": "{{$.additional_title}}",
+          "language": "fr"
+        },
+        {
+          "predicate": {
+            "namespace": "ebucore",
+            "label": "abstract"
+          },
+          "label": "{{$.short_description}}",
+          "language": "fr"
+        },
+        {
+          "predicate": {
+            "namespace": "ebucore",
+            "label": "synopsis"
+          },
+          "label": "{{$.description}}",
           "language": "fr"
         },
         {
@@ -39,29 +55,115 @@
             "namespace": "ebucore",
             "label": "dateModified"
           },
-          "json_path": "$.updated_at"
+          "label": "{{$.updated_at}}",
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime"
         },
         {
           "predicate": {
             "namespace": "ebucore",
             "label": "dateCreated"
           },
-          "json_path": "$.created_at"
+          "label": "{{$.created_at}}",
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime"
         },
         {
           "predicate": {
             "namespace": "ebucore",
             "label": "hasCreator"
           },
-          "json_path": "$.created_by"
+          "label": "{{$.created_by}}"
         },
         {
           "predicate": {
             "namespace": "ebucore",
             "label": "durationNormalPlayTime"
           },
-          "json_path": "$.duration",
-          "datatype": "http://www.w3.org/2001/XMLSchema#time"
+          "label": "{{$.duration}}",
+          "datatype": "http://www.w3.org/2001/XMLSchema#duration"
+        },
+        {
+          "predicate": {
+            "namespace": "ebucore",
+            "label": "dateBroadcast"
+          },
+          "label": "{{$.broadcasted_at}}",
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime"
+        }
+      ]
+    },
+    {
+      "label": "http://ressources.idfrancetv.fr/image/{{$.files[?(@.format.mime_type == 'image/jpeg')].id}}",
+      "items": [
+        {
+          "predicate": {
+            "namespace": "rdf",
+            "label": "type"
+          },
+          "label": "http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#Essence",
+          "as_uri": true
+        },
+        {
+          "predicate": {
+            "namespace": "rdf",
+            "label": "type"
+          },
+          "label": "ftv_segmentation:Bande-annonce",
+          "as_uri": true
+        },
+        {
+          "predicate": {
+            "namespace": "ebucore",
+            "label": "resourceId"
+          },
+          "label": "urn::uuid:{{$.files[?(@.format.mime_type == 'image/jpeg')].id}}",
+          "as_uri": true
+        },
+        {
+          "predicate": {
+            "namespace": "ebucore",
+            "label": "fileSize"
+          },
+          "label": "{{$.files[?(@.format.mime_type == 'image/jpeg')].filesize_bytes}}",
+          "datatype": "http://www.w3.org/2001/XMLSchema#unsignedLong"
+        },
+        {
+          "predicate": {
+            "namespace": "ebucore",
+            "label": "hasFormat"
+          },
+          "label": "urn:mimetype:{{$.files[?(@.format.mime_type == 'image/jpeg')].format.mime_type}}"
+        },
+        {
+          "predicate": {
+            "namespace": "ebucore",
+            "label": "height"
+          },
+          "label": "{{$.files[?(@.format.mime_type == 'image/jpeg')].height}}",
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer"
+        },
+        {
+          "predicate": {
+            "namespace": "ebucore",
+            "label": "width"
+          },
+          "label": "{{$.files[?(@.format.mime_type == 'image/jpeg')].width}}",
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer"
+        },
+        {
+          "predicate": {
+            "namespace": "ebucore",
+            "label": "hashValue"
+          },
+          "label": "urn:md5:{{$.files[?(@.format.mime_type == 'image/jpeg')].md5_checksum}}",
+          "as_uri": true
+        },
+        {
+          "predicate": {
+            "namespace": "ebucore",
+            "label": "locator"
+          },
+          "label": "{{$.files[?(@.format.mime_type == 'image/jpeg')].url}}",
+          "as_uri": true
         }
       ]
     }

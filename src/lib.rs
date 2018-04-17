@@ -5,6 +5,7 @@ extern crate regex;
 #[macro_use]
 extern crate serde_derive;
 extern crate serde;
+#[macro_use]
 extern crate serde_json;
 
 pub mod converter;
@@ -44,9 +45,9 @@ mod tests {
     mapper.process(doc, &mut converter);
 
     let content = converter.to_ntriple_string();
-    println!("{:?}", content);
+    println!("{}", content);
     assert!(content == ntriple_struct);
 
-    let _content = converter.to_turtle_string();
+    // let _content = converter.to_turtle_string();
   }
 }

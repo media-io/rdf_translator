@@ -4,6 +4,7 @@ use definition::ebucore::EbuCore;
 use definition::owl::Owl;
 use definition::rdf::Rdf;
 use definition::rdfs::Rdfs;
+use definition::undefined::Undefined;
 use definition::xsi::Xsi;
 
 use rdf::graph::Graph;
@@ -17,11 +18,47 @@ use rdf::writer::turtle_writer::TurtleWriter;
 
 macro_rules! build {
   ($graph:expr, $namespace:expr, $label:expr) => (
-    $graph.add_namespace(&Namespace::new($label.to_string(), Uri::new($namespace.to_owned())));
+    $graph.add_namespace(&Namespace::new($label.to_string(), Uri::new($namespace.to_owned())))
   );
   (node => $graph:expr, $namespace:expr, $label:expr) => (
-    $graph.create_uri_node(&Uri::new(Definition::get_label(&$namespace, $label)))
+    $graph.create_uri_node(&Uri::new(Definition::get_label($namespace, $label)))
   )
+}
+
+macro_rules! add {
+  (definition => $definition:expr, $graph:expr, $subject:expr, $label:expr, $object:block) => ({
+    let predicate_namespace = $definition;
+    let predicate = build!(node => $graph, &predicate_namespace, $label);
+    let object = $object;
+
+    let triple = Triple::new(&$subject, &predicate, &object);
+    $graph.add_triple(&triple);
+  });
+  ($namespace:expr, $graph:expr, $subject:expr, $label:expr, $object:block) => ({
+    match $namespace.as_ref().map(|s| &s[..]) {
+      Some("ebucore") => {
+        add!(definition => EbuCore{}, $graph, $subject, $label, $object)
+      },
+      Some("owl") => {
+        add!(definition => Owl{}, $graph, $subject, $label, $object)
+      },
+      Some("rdf") => {
+        add!(definition => Rdf{}, $graph, $subject, $label, $object)
+      },
+      Some("rdfs") => {
+        add!(definition => Rdfs{}, $graph, $subject, $label, $object)
+      },
+      Some("xsi") => {
+        add!(definition => Xsi{}, $graph, $subject, $label, $object)
+      },
+      None => {
+        add!(definition => Undefined{}, $graph, $subject, $label, $object)
+      },
+       _ => {
+        panic!("unable to process namespace {:?}", $namespace);
+      },
+    }
+  })
 }
 
 #[derive(Debug)]
@@ -55,52 +92,28 @@ impl Converter {
     subject
   }
 
-  pub fn add(&mut self, subject: &Node, namespace: &str, label: &str, content: String) {
-    let predicate_namespace =
-      match namespace {
-        "ebucore" => EbuCore{},
-         _ => {
-          panic!("unable to process namespace {:?}", namespace);
-        },
-      };
-
-    let predicate = build!(node => self.graph, predicate_namespace, label);
-    let object = self.graph.create_literal_node(content);
-
-    let triple = Triple::new(&subject, &predicate, &object);
-    self.graph.add_triple(&triple);
+  pub fn add(&mut self, subject: &Node, namespace: &Option<String>, label: &str, content: &str) {
+    add!(namespace, self.graph, subject, label, {
+      self.graph.create_literal_node(content.to_string())
+    });
   }
 
-  pub fn add_with_language(&mut self, subject: &Node, namespace: &str, label: &str, content: String, lang: &str) {
-    let predicate_namespace =
-      match namespace {
-        "ebucore" => EbuCore{},
-         _ => {
-          panic!("unable to process namespace {:?}", namespace);
-        },
-      };
-
-    let predicate = build!(node => self.graph, predicate_namespace, label);
-    let object = self.graph.create_literal_node_with_language(content, lang.to_string());
-
-    let triple = Triple::new(&subject, &predicate, &object);
-    self.graph.add_triple(&triple);
+  pub fn add_with_language(&mut self, subject: &Node, namespace: &Option<String>, label: &str, content: &str, lang: &str) {
+    add!(namespace, self.graph, subject, label, {
+      self.graph.create_literal_node_with_language(content.to_string(), lang.to_string())
+    });
   }
 
-  pub fn add_with_datatype(&mut self, subject: &Node, namespace: &str, label: &str, content: String, datatype: &str) {
-    let predicate_namespace =
-      match namespace {
-        "ebucore" => EbuCore{},
-         _ => {
-          panic!("unable to process namespace {:?}", namespace);
-        },
-      };
+  pub fn add_with_datatype(&mut self, subject: &Node, namespace: &Option<String>, label: &str, content: &str, datatype: &str) {
+    add!(namespace, self.graph, subject, label, {
+      self.graph.create_literal_node_with_data_type(content.to_string(), &Uri::new(datatype.to_string()))
+    });
+  }
 
-    let predicate = build!(node => self.graph, predicate_namespace, label);
-    let object = self.graph.create_literal_node_with_data_type(content, &Uri::new(datatype.to_string()));
-
-    let triple = Triple::new(&subject, &predicate, &object);
-    self.graph.add_triple(&triple);
+  pub fn add_uri(&mut self, subject: &Node, namespace: &Option<String>, label: &str, content: &str) {
+    add!(namespace, self.graph, subject, label, {
+      self.graph.create_uri_node(&Uri::new(content.to_string()))
+    });
   }
 
   pub fn to_ntriple_string(&self) -> String {

@@ -1,7 +1,27 @@
-<http://ressources.idfrancetv.fr/medias/3c853005-9172-4fd5-9e90-55f3d0e62df2> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#businessObjectId> "3c853005-9172-4fd5-9e90-55f3d0e62df2" .
-<http://ressources.idfrancetv.fr/medias/3c853005-9172-4fd5-9e90-55f3d0e62df2> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#title> "JT Local 19-20 - Pau Sud Aquitaine"@fr .
-<http://ressources.idfrancetv.fr/medias/3c853005-9172-4fd5-9e90-55f3d0e62df2> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#description> "Toutes les informations de votre région."@fr .
-<http://ressources.idfrancetv.fr/medias/3c853005-9172-4fd5-9e90-55f3d0e62df2> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#dateModified> "2018-02-19T19:19:02+01:00" .
-<http://ressources.idfrancetv.fr/medias/3c853005-9172-4fd5-9e90-55f3d0e62df2> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#dateCreated> "2018-02-19T19:19:01+01:00" .
-<http://ressources.idfrancetv.fr/medias/3c853005-9172-4fd5-9e90-55f3d0e62df2> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#hasCreator> "sivideo-legacy@francetv.fr" .
-<http://ressources.idfrancetv.fr/medias/3c853005-9172-4fd5-9e90-55f3d0e62df2> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#durationNormalPlayTime> "PT7M5S"^^<http://www.w3.org/2001/XMLSchema#time> .
+<http://ressources.idfrancetv.fr/medias/565f07ac-baa6-4d48-8d60-6b1354207a92> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> "http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#editorialObject" .
+<http://ressources.idfrancetv.fr/medias/565f07ac-baa6-4d48-8d60-6b1354207a92> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#title> "Un livre, un jour"@fr .
+<http://ressources.idfrancetv.fr/medias/565f07ac-baa6-4d48-8d60-6b1354207a92> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#alternativeTitle> "«Comme un chef», de Benoît Peeters et Aurélia Aurita (Casterman)"@fr .
+<http://ressources.idfrancetv.fr/medias/565f07ac-baa6-4d48-8d60-6b1354207a92> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#synopsis> "Olivier Barrot présente un ouvrage récemment paru en librairie."@fr .
+<http://ressources.idfrancetv.fr/medias/565f07ac-baa6-4d48-8d60-6b1354207a92> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#dateModified> "2018-04-16T16:23:21+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+<http://ressources.idfrancetv.fr/medias/565f07ac-baa6-4d48-8d60-6b1354207a92> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#dateCreated> "2018-04-12T05:40:59+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+<http://ressources.idfrancetv.fr/medias/565f07ac-baa6-4d48-8d60-6b1354207a92> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#hasCreator> "workers.user.prod@francetv.fr" .
+<http://ressources.idfrancetv.fr/medias/565f07ac-baa6-4d48-8d60-6b1354207a92> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#durationNormalPlayTime> "PT1M29S"^^<http://www.w3.org/2001/XMLSchema#duration> .
+<http://ressources.idfrancetv.fr/medias/565f07ac-baa6-4d48-8d60-6b1354207a92> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#dateBroadcast> "2018-04-16T16:09:00+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+<http://ressources.idfrancetv.fr/image/333016b4-7268-4e04-af4e-fb4a10c3eb00> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#Essence> .
+<http://ressources.idfrancetv.fr/image/333016b4-7268-4e04-af4e-fb4a10c3eb00> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <ftv_segmentation:Bande-annonce> .
+<http://ressources.idfrancetv.fr/image/333016b4-7268-4e04-af4e-fb4a10c3eb00> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#resourceId> <urn::uuid:333016b4-7268-4e04-af4e-fb4a10c3eb00> .
+<http://ressources.idfrancetv.fr/image/333016b4-7268-4e04-af4e-fb4a10c3eb00> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#fileSize> "529068"^^<http://www.w3.org/2001/XMLSchema#unsignedLong> .
+<http://ressources.idfrancetv.fr/image/333016b4-7268-4e04-af4e-fb4a10c3eb00> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#hasFormat> "urn:mimetype:image/jpeg" .
+<http://ressources.idfrancetv.fr/image/333016b4-7268-4e04-af4e-fb4a10c3eb00> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#height> "720"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://ressources.idfrancetv.fr/image/333016b4-7268-4e04-af4e-fb4a10c3eb00> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#width> "1280"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://ressources.idfrancetv.fr/image/333016b4-7268-4e04-af4e-fb4a10c3eb00> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#hashValue> <urn:md5:269556106e57ef6122fdde0210d513f6> .
+<http://ressources.idfrancetv.fr/image/333016b4-7268-4e04-af4e-fb4a10c3eb00> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#locator> <https://staticftv-a.akamaihd.net/videospritesheets/201816/5ad4b1862a142/174663329-5ad4b1862a1420.jpeg> .
+<http://ressources.idfrancetv.fr/image/bcab07ed-417b-4984-804a-6ac6b2238007> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#Essence> .
+<http://ressources.idfrancetv.fr/image/bcab07ed-417b-4984-804a-6ac6b2238007> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <ftv_segmentation:Bande-annonce> .
+<http://ressources.idfrancetv.fr/image/bcab07ed-417b-4984-804a-6ac6b2238007> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#resourceId> <urn::uuid:333016b4-7268-4e04-af4e-fb4a10c3eb00> .
+<http://ressources.idfrancetv.fr/image/bcab07ed-417b-4984-804a-6ac6b2238007> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#fileSize> "529068"^^<http://www.w3.org/2001/XMLSchema#unsignedLong> .
+<http://ressources.idfrancetv.fr/image/bcab07ed-417b-4984-804a-6ac6b2238007> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#hasFormat> "urn:mimetype:image/jpeg" .
+<http://ressources.idfrancetv.fr/image/bcab07ed-417b-4984-804a-6ac6b2238007> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#height> "720"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://ressources.idfrancetv.fr/image/bcab07ed-417b-4984-804a-6ac6b2238007> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#width> "1280"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://ressources.idfrancetv.fr/image/bcab07ed-417b-4984-804a-6ac6b2238007> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#hashValue> <urn:md5:269556106e57ef6122fdde0210d513f6> .
+<http://ressources.idfrancetv.fr/image/bcab07ed-417b-4984-804a-6ac6b2238007> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#locator> <https://staticftv-a.akamaihd.net/videospritesheets/201816/5ad4b1862a142/174663329-5ad4b1862a1420.jpeg> .
