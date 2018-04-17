@@ -1,4 +1,3 @@
-
 use definition::definition::Definition;
 use definition::ebucore::EbuCore;
 use definition::owl::Owl;
@@ -63,66 +62,88 @@ macro_rules! add {
 
 #[derive(Debug)]
 pub struct Converter {
-  pub graph: Graph
+    pub graph: Graph,
 }
 
 impl Converter {
-  pub fn new() -> Converter {
-    let ebucore = EbuCore{};
-    let owl = Owl{};
-    let rdf = Rdf{};
-    let rdfs = Rdfs{};
-    let xsi = Xsi{};
+    pub fn new() -> Converter {
+        let ebucore = EbuCore {};
+        let owl = Owl {};
+        let rdf = Rdf {};
+        let rdfs = Rdfs {};
+        let xsi = Xsi {};
 
-    let mut graph = Graph::new(None);
-    build!(graph, Definition::get_namespace(&rdf), "rdf");
-    build!(graph, Definition::get_namespace(&rdfs), "rdfs");
-    build!(graph, Definition::get_namespace(&owl), "owl");
-    build!(graph, Definition::get_namespace(&ebucore), "ebucore");
-    build!(graph, Definition::get_namespace(&xsi), "xsi");
-    build!(graph, "urn:ebu:metadata-schema:ebuCore_2012", "default");
+        let mut graph = Graph::new(None);
+        build!(graph, Definition::get_namespace(&rdf), "rdf");
+        build!(graph, Definition::get_namespace(&rdfs), "rdfs");
+        build!(graph, Definition::get_namespace(&owl), "owl");
+        build!(graph, Definition::get_namespace(&ebucore), "ebucore");
+        build!(graph, Definition::get_namespace(&xsi), "xsi");
+        build!(graph, "urn:ebu:metadata-schema:ebuCore_2012", "default");
 
-    Converter {
-      graph: graph
+        Converter { graph: graph }
     }
-  }
 
-  pub fn create_subject(&mut self, value: &str) -> Node {
-    let subject = self.graph.create_uri_node(&Uri::new(value.to_string()));
-    subject
-  }
+    pub fn create_subject(&mut self, value: &str) -> Node {
+        let subject = self.graph.create_uri_node(&Uri::new(value.to_string()));
+        subject
+    }
 
-  pub fn add(&mut self, subject: &Node, namespace: &Option<String>, label: &str, content: &str) {
-    add!(namespace, self.graph, subject, label, {
-      self.graph.create_literal_node(content.to_string())
-    });
-  }
+    pub fn add(&mut self, subject: &Node, namespace: &Option<String>, label: &str, content: &str) {
+        add!(namespace, self.graph, subject, label, {
+            self.graph.create_literal_node(content.to_string())
+        });
+    }
 
-  pub fn add_with_language(&mut self, subject: &Node, namespace: &Option<String>, label: &str, content: &str, lang: &str) {
-    add!(namespace, self.graph, subject, label, {
-      self.graph.create_literal_node_with_language(content.to_string(), lang.to_string())
-    });
-  }
+    pub fn add_with_language(
+        &mut self,
+        subject: &Node,
+        namespace: &Option<String>,
+        label: &str,
+        content: &str,
+        lang: &str,
+    ) {
+        add!(namespace, self.graph, subject, label, {
+            self.graph
+                .create_literal_node_with_language(content.to_string(), lang.to_string())
+        });
+    }
 
-  pub fn add_with_datatype(&mut self, subject: &Node, namespace: &Option<String>, label: &str, content: &str, datatype: &str) {
-    add!(namespace, self.graph, subject, label, {
-      self.graph.create_literal_node_with_data_type(content.to_string(), &Uri::new(datatype.to_string()))
-    });
-  }
+    pub fn add_with_datatype(
+        &mut self,
+        subject: &Node,
+        namespace: &Option<String>,
+        label: &str,
+        content: &str,
+        datatype: &str,
+    ) {
+        add!(namespace, self.graph, subject, label, {
+            self.graph.create_literal_node_with_data_type(
+                content.to_string(),
+                &Uri::new(datatype.to_string()),
+            )
+        });
+    }
 
-  pub fn add_uri(&mut self, subject: &Node, namespace: &Option<String>, label: &str, content: &str) {
-    add!(namespace, self.graph, subject, label, {
-      self.graph.create_uri_node(&Uri::new(content.to_string()))
-    });
-  }
+    pub fn add_uri(
+        &mut self,
+        subject: &Node,
+        namespace: &Option<String>,
+        label: &str,
+        content: &str,
+    ) {
+        add!(namespace, self.graph, subject, label, {
+            self.graph.create_uri_node(&Uri::new(content.to_string()))
+        });
+    }
 
-  pub fn to_ntriple_string(&self) -> String {
-    let writer = NTriplesWriter::new();
-    writer.write_to_string(&self.graph).unwrap()
-  }
+    pub fn to_ntriple_string(&self) -> String {
+        let writer = NTriplesWriter::new();
+        writer.write_to_string(&self.graph).unwrap()
+    }
 
-  pub fn to_turtle_string(&self) -> String {
-    let writer = TurtleWriter::new(self.graph.namespaces());
-    writer.write_to_string(&self.graph).unwrap()
-  }
+    pub fn to_turtle_string(&self) -> String {
+        let writer = TurtleWriter::new(self.graph.namespaces());
+        writer.write_to_string(&self.graph).unwrap()
+    }
 }
