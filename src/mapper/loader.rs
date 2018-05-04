@@ -11,10 +11,13 @@ use std::io::Read;
 pub struct Predicate {
     pub namespace: Option<String>,
     pub label: String,
+    pub condition: Option<String>,
+    pub identifier: Option<String>,
 }
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Item {
+    pub elements: Option<String>,
     pub predicate: Predicate,
     pub label: Option<String>,
     #[serde(default)] pub language: String,
@@ -25,6 +28,7 @@ pub struct Item {
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Object {
+    pub elements: Option<String>,
     pub label: String,
     pub items: Vec<Item>,
 }
@@ -116,10 +120,110 @@ impl Mapper {
 
     pub fn process(&self, document: &Value, converter: &mut Converter) {
         for object in &self.objects {
-            for subject_label in parse_label(&object.label, &document) {
-                let subject = converter.create_subject(subject_label.as_str());
-                self.process_relations(&document, converter, &subject, &object.items)
+            if let Some(ref elements_path) = object.elements {
+                let selector = Selector::new(&elements_path).unwrap();
+                let elements: Vec<&Value> = selector.find(document).collect();
+
+                for element in elements {
+                    for subject_label in parse_label(&object.label, &element) {
+                        let subject = converter.create_subject(subject_label.as_str());
+                        self.process_relations(&element, converter, &subject, &object.items)
+                    }
+                }
+            } else {
+                for subject_label in parse_label(&object.label, &document) {
+                    let subject = converter.create_subject(subject_label.as_str());
+                    self.process_relations(&document, converter, &subject, &object.items)
+                }
             }
+        }
+    }
+
+    fn process_item(
+        &self,
+        document: &Value,
+        converter: &mut Converter,
+        subject: &Node,
+        item: &Item
+    ) {
+        let label = item.label.to_owned();
+
+        if let Some(ref condition) = item.predicate.condition {
+            let selector = Selector::new(&condition).unwrap();
+            let founds: Vec<&Value> =
+                selector
+                .find(document)
+                .filter(|x| !x.is_null())
+                .collect();
+
+            if founds.is_empty() {
+                // continue;
+                return;
+            }
+        }
+
+        if label.is_none() {
+            let child_subject =
+                if let Some(ref identifier) = item.predicate.identifier {
+                    if let Some(id) = parse_label(identifier, document).first() {
+                        converter.create_blank_node_with_id(id)
+                    } else {
+                        converter.create_blank_node()
+                    }
+                } else {
+                    converter.create_blank_node()
+                };
+
+            converter.add_blank(
+                subject,
+                &item.predicate.namespace,
+                &item.predicate.label,
+                child_subject.clone(),
+            );
+            self.process_relations(document, converter, &child_subject, &item.items);
+            // continue;
+            return;
+        }
+
+        let object_labels = parse_label(&label.unwrap(), document);
+        let object_label = object_labels.first();
+
+        if object_label.is_none() {
+            // continue;
+            return;
+        }
+
+        let content = object_label.unwrap();
+
+        match (item.language.as_str(), item.datatype.as_str(), item.as_uri) {
+            ("", "", false) => converter.add(
+                subject,
+                &item.predicate.namespace,
+                &item.predicate.label,
+                content,
+            ),
+            (lang, "", false) => converter.add_with_language(
+                subject,
+                &item.predicate.namespace,
+                &item.predicate.label,
+                content,
+                lang,
+            ),
+            ("", datatype, false) => converter.add_with_datatype(
+                subject,
+                &item.predicate.namespace,
+                &item.predicate.label,
+                content,
+                datatype,
+            ),
+
+            ("", "", true) => converter.add_uri(
+                subject,
+                &item.predicate.namespace,
+                &item.predicate.label,
+                content,
+            ),
+            _ => {}
         }
     }
 
@@ -128,60 +232,17 @@ impl Mapper {
         document: &Value,
         converter: &mut Converter,
         subject: &Node,
-        items: &Vec<Item>,
+        items: &[Item],
     ) {
         for item in items.iter() {
-            let label = item.label.to_owned();
-            if label.is_none() {
-                let child_subject = converter.create_blank_node();
-                converter.add_blank(
-                    &subject,
-                    &item.predicate.namespace,
-                    &item.predicate.label,
-                    child_subject.clone(),
-                );
-                self.process_relations(document, converter, &child_subject, &item.items);
-                continue;
-            }
-
-            let object_labels = parse_label(&label.unwrap(), &document);
-            let object_label = object_labels.first();
-
-            if object_label.is_none() {
-                continue;
-            }
-
-            let content = object_label.unwrap();
-
-            match (item.language.as_str(), item.datatype.as_str(), item.as_uri) {
-                ("", "", false) => converter.add(
-                    &subject,
-                    &item.predicate.namespace,
-                    &item.predicate.label,
-                    content,
-                ),
-                (lang, "", false) => converter.add_with_language(
-                    &subject,
-                    &item.predicate.namespace,
-                    &item.predicate.label,
-                    content,
-                    lang,
-                ),
-                ("", datatype, false) => converter.add_with_datatype(
-                    &subject,
-                    &item.predicate.namespace,
-                    &item.predicate.label,
-                    content,
-                    datatype,
-                ),
-
-                ("", "", true) => converter.add_uri(
-                    &subject,
-                    &item.predicate.namespace,
-                    &item.predicate.label,
-                    content,
-                ),
-                _ => {}
+            if let Some(ref elements_path) = item.elements {
+                let selector = Selector::new(&elements_path).unwrap();
+                let elements: Vec<&Value> = selector.find(document).collect();
+                for element in elements {
+                    self.process_item(element, converter, subject, item);
+                }
+            } else {
+                self.process_item(document, converter, subject, item);
             }
         }
     }

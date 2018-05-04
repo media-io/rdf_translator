@@ -60,9 +60,9 @@
   "created_by": "workers.user.prod@francetv.fr",
   "created_via": "import-plurimedia-epg",
   "external_ids": {
-    "allocine_id": null,
-    "cnc_visa_id": null,
-    "isan": null,
+    "allocine_id": "allocine_identifier",
+    "cnc_visa_id": "cnc_visa_identifier",
+    "isan": "isan_identifier",
     "legacy_id": "174663329",
     "oscar_id": "F32582765674323920181604",
     "svod_id": null,
@@ -654,5 +654,8 @@
       "ratio": "16:9",
       "url": "https://assets.webservices.francetelevisions.fr/v1/assets/images/26/95/56/fa47ce81-f217-479c-b49b-5b03d12bd20d.jpeg"
     }
-  ]
+  ],
+  "artefacts": {
+    "manifest": "http://videos-pmd.francetv.fr/innovation/testing/1a8c746c-1621-45fe-adeb-28e85554e852/2018_05_04__10_17_06/manifest.mpd"
+  }
 }

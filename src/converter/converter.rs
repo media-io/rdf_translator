@@ -91,6 +91,10 @@ impl Converter {
         self.graph.create_blank_node()
     }
 
+    pub fn create_blank_node_with_id(&mut self, id: &str) -> Node {
+        self.graph.create_blank_node_with_id(String::from(id))
+    }
+
     pub fn add(&mut self, subject: &Node, namespace: &Option<String>, label: &str, content: &str) {
         add!(namespace, self.graph, subject, label, {
             self.graph.create_literal_node(content.to_string())
