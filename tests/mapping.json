@@ -341,81 +341,91 @@
               ]
             }
           ]
-        }
-      ]
-    },
-    {
-      "label": "http://ressources.idfrancetv.fr/image/{{$.id}}",
-      "elements": "$.files[?(@.format.mime_type == 'image/jpeg')]",
-      "items": [
-        {
-          "predicate": {
-            "namespace": "rdf",
-            "label": "type"
-          },
-          "label": "http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#Essence",
-          "as_uri": true
         },
         {
-          "predicate": {
-            "namespace": "rdf",
-            "label": "type"
-          },
-          "label": "ftv_segmentation:Bande-annonce",
-          "as_uri": true
-        },
-        {
+          "elements": "$.files[?(@.format.mime_type == 'image/jpeg') && ?(@.tags.* != 'thumbnail-sprite')]",
           "predicate": {
             "namespace": "ebucore",
-            "label": "resourceId"
+            "label": "hasRelatedImage"
           },
-          "label": "urn::uuid:{{$.id}}",
-          "as_uri": true
-        },
-        {
-          "predicate": {
-            "namespace": "ebucore",
-            "label": "fileSize"
-          },
-          "label": "{{$.filesize_bytes}}",
-          "datatype": "http://www.w3.org/2001/XMLSchema#unsignedLong"
-        },
-        {
-          "predicate": {
-            "namespace": "ebucore",
-            "label": "hasFormat"
-          },
-          "label": "urn:mimetype:{{$.format.mime_type}}"
-        },
-        {
-          "predicate": {
-            "namespace": "ebucore",
-            "label": "height"
-          },
-          "label": "{{$.height}}",
-          "datatype": "http://www.w3.org/2001/XMLSchema#integer"
-        },
-        {
-          "predicate": {
-            "namespace": "ebucore",
-            "label": "width"
-          },
-          "label": "{{$.width}}",
-          "datatype": "http://www.w3.org/2001/XMLSchema#integer"
-        },
-        {
-          "predicate": {
-            "namespace": "ebucore",
-            "label": "hashValue"
-          },
-          "label": "urn:md5:{{$.md5_checksum}}"
-        },
-        {
-          "predicate": {
-            "namespace": "ebucore",
-            "label": "locator"
-          },
-          "label": "{{$.url}}"
+          "items": [
+            {
+              "predicate": {
+                "namespace": "rdf",
+                "label": "type"
+              },
+              "label": "http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#Image",
+              "as_uri": true
+            },
+            {
+              "predicate": {
+                "namespace": "ebucore",
+                "label": "resourceId"
+              },
+              "label": "urn::uuid:{{$.id}}"
+            },
+            {
+              "predicate": {
+                "namespace": "ebucore",
+                "label": "fileSize"
+              },
+              "label": "{{$.filesize_bytes}}",
+              "datatype": "http://www.w3.org/2001/XMLSchema#unsignedLong"
+            },
+            {
+              "predicate": {
+                "namespace": "ebucore",
+                "label": "hasFormat"
+              },
+              "label": "urn:mimetype:{{$.format.mime_type}}"
+            },
+            {
+              "predicate": {
+                "namespace": "ebucore",
+                "label": "height"
+              },
+              "label": "{{$.height}}",
+              "datatype": "http://www.w3.org/2001/XMLSchema#integer"
+            },
+            {
+              "predicate": {
+                "namespace": "ebucore",
+                "label": "width"
+              },
+              "label": "{{$.width}}",
+              "datatype": "http://www.w3.org/2001/XMLSchema#integer"
+            },
+            {
+              "predicate": {
+                "namespace": "ebucore",
+                "label": "hashValue"
+              },
+              "label": "urn:md5:{{$.md5_checksum}}"
+            },
+            {
+              "predicate": {
+                "namespace": "ebucore",
+                "label": "locator"
+              },
+              "label": "{{$.url}}"
+            },
+            {
+              "predicate": {
+                "namespace": "ebucore",
+                "label": "dateModified"
+              },
+              "label": "{{$.updated_at}}",
+              "datatype": "http://www.w3.org/2001/XMLSchema#dateTime"
+            },
+            {
+              "predicate": {
+                "namespace": "ebucore",
+                "label": "dateCreated"
+              },
+              "label": "{{$.created_at}}",
+              "datatype": "http://www.w3.org/2001/XMLSchema#dateTime"
+            }
+          ]
         }
       ]
     }
