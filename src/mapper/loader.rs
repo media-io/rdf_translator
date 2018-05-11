@@ -38,7 +38,7 @@ pub struct Mapper {
     pub objects: Vec<Object>,
 }
 
-fn parse_label(label: &str, document: &Value) -> Vec<String> {
+pub fn parse_label(label: &str, document: &Value) -> Vec<String> {
     let pattern_text = r"([a-zA-Z0-9#$.\\/:?&_-]*)*";
     let pattern_json_path = r"(\{\{[a-zA-Z$@.-_'/()= \*]*\}\})*";
 
@@ -246,43 +246,4 @@ impl Mapper {
             }
         }
     }
-}
-
-#[test]
-fn test_parse_label_null() {
-    let label = "{{$.id}}";
-    let document = Value::Null;
-    let result = parse_label(label, &document);
-    assert_eq!(result.is_empty(), true);
-
-    let label = "{{$.id}}";
-    let document = json!({ "id": 666 });
-    let result = parse_label(label, &document);
-    assert_eq!(result, vec!["666".to_string()]);
-
-    let label = "prefix{{$.id}}suffix";
-    let document = json!({"id": 666 });
-    let result = parse_label(label, &document);
-    assert_eq!(result, vec!["prefix666suffix".to_string()]);
-
-    let label = "prefix{{$.books.*.id}}suffix";
-    let document = json!({"books": [{"id": 666}, {"id": 999}]});
-    let result = parse_label(label, &document);
-    assert_eq!(
-        result,
-        vec!["prefix666suffix".to_string(), "prefix999suffix".to_string()]
-    );
-
-    let label = "prefix{{$.books.*.id}}_{{$.books.*.key}}suffix";
-    let document = json!({"books": [{"id": 666, "key": "aaa"}, {"id": 999, "key": "bbb"}]});
-    let result = parse_label(label, &document);
-    assert_eq!(
-        result,
-        vec![
-            "prefix666_aaasuffix".to_string(),
-            "prefix666_bbbsuffix".to_string(),
-            "prefix999_aaasuffix".to_string(),
-            "prefix999_bbbsuffix".to_string(),
-        ]
-    );
 }

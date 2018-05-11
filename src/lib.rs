@@ -4,7 +4,6 @@ extern crate regex;
 extern crate serde;
 #[macro_use]
 extern crate serde_derive;
-#[macro_use]
 extern crate serde_json;
 
 pub mod converter;
@@ -32,10 +31,6 @@ mod tests {
         let mut ntriple_file = File::open("tests/ntriple.txt").unwrap();
         let _ = ntriple_file.read_to_string(&mut ntriple_struct).unwrap();
 
-        // let mut turtle_struct = String::new();
-        // let mut turtle_file = File::open("tests/turtle.txt").unwrap();
-        // let _ = turtle_file.read_to_string(&mut turtle_struct).unwrap();
-
         let doc = serde_json::from_str(&video_struct).unwrap();
 
         let mut converter = Converter::new();
@@ -46,8 +41,13 @@ mod tests {
         let content = converter.to_ntriple_string();
         println!("{}", content);
         assert!(content == ntriple_struct);
-        assert!(false);
 
-        // let _content = converter.to_turtle_string();
+        // let mut turtle_struct = String::new();
+        // let mut turtle_file = File::open("tests/turtle.txt").unwrap();
+        // let _ = turtle_file.read_to_string(&mut turtle_struct).unwrap();
+
+        // let content = converter.to_turtle_string();
+        // println!("{}", content);
+        // assert!(false);
     }
 }

@@ -8,7 +8,7 @@
             "namespace": "rdf",
             "label": "type"
           },
-          "label": "http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#editorialObject"
+          "label": "http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#EditorialObject"
         },
         {
           "predicate": {
@@ -27,40 +27,31 @@
           "items": [
             {
               "predicate": {
-                "namespace": "rdf",
-                "label": "Description",
-                "id": "{{$.id}}_isan"
+                  "namespace": "rdf",
+                  "label": "type"
+                },
+                "label": "http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#Identifier"
               },
-              "items": [
-                {
-                  "predicate": {
-                    "namespace": "rdf",
-                    "label": "type"
-                  },
-                  "label": "http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#Identifier"
-                },
-                {
-                  "predicate": {
-                    "namespace": "rdfs",
-                    "label": "label"
-                  },
-                  "label": "ISAN"
-                },
-                {
-                  "predicate": {
-                    "namespace": "ebucore",
-                    "label": "hasIdentifierType"
-                  },
-                  "label": "ISAN"
-                },
-                {
-                  "predicate": {
-                    "namespace": "ebucore",
-                    "label": "identifierValue"
-                  },
-                  "label": "{{$.external_ids.isan}}"
-                }
-              ]
+            {
+              "predicate": {
+                "namespace": "rdfs",
+                "label": "label"
+              },
+              "label": "ISAN"
+            },
+            {
+              "predicate": {
+                "namespace": "ebucore",
+                "label": "hasIdentifierType"
+              },
+              "label": "ISAN"
+            },
+            {
+              "predicate": {
+                "namespace": "ebucore",
+                "label": "identifierValue"
+              },
+              "label": "{{$.external_ids.isan}}"
             }
           ]
         },
@@ -74,39 +65,30 @@
             {
               "predicate": {
                 "namespace": "rdf",
-                "label": "Description",
-                "identifier": "{{$.id}}_oscar"
+                "label": "type"
               },
-              "items": [
-                {
-                  "predicate": {
-                    "namespace": "rdf",
-                    "label": "type"
-                  },
-                  "label": "http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#Identifier"
-                },
-                {
-                  "predicate": {
-                    "namespace": "rdfs",
-                    "label": "label"
-                  },
-                  "label": "OSCAR"
-                },
-                {
-                  "predicate": {
-                    "namespace": "ebucore",
-                    "label": "hasIdentifierType"
-                  },
-                  "label": "OSCAR"
-                },
-                {
-                  "predicate": {
-                    "namespace": "ebucore",
-                    "label": "identifierValue"
-                  },
-                  "label": "{{$.external_ids.oscar_id}}"
-                }
-              ]
+              "label": "http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#Identifier"
+            },
+            {
+              "predicate": {
+                "namespace": "rdfs",
+                "label": "label"
+              },
+              "label": "OSCAR"
+            },
+            {
+              "predicate": {
+                "namespace": "ebucore",
+                "label": "hasIdentifierType"
+              },
+              "label": "OSCAR"
+            },
+            {
+              "predicate": {
+                "namespace": "ebucore",
+                "label": "identifierValue"
+              },
+              "label": "{{$.external_ids.oscar_id}}"
             }
           ]
         },
@@ -120,39 +102,30 @@
             {
               "predicate": {
                 "namespace": "rdf",
-                "label": "Description",
-                "identifier": "{{$.id}}_allocine"
+                "label": "type"
               },
-              "items": [
-                {
-                  "predicate": {
-                    "namespace": "rdf",
-                    "label": "type"
-                  },
-                  "label": "http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#Identifier"
-                },
-                {
-                  "predicate": {
-                    "namespace": "rdfs",
-                    "label": "label"
-                  },
-                  "label": "Allocine"
-                },
-                {
-                  "predicate": {
-                    "namespace": "ebucore",
-                    "label": "hasIdentifierType"
-                  },
-                  "label": "Allocine"
-                },
-                {
-                  "predicate": {
-                    "namespace": "ebucore",
-                    "label": "identifierValue"
-                  },
-                  "label": "{{$.external_ids.allocine_id}}"
-                }
-              ]
+              "label": "http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#Identifier"
+            },
+            {
+              "predicate": {
+                "namespace": "rdfs",
+                "label": "label"
+              },
+              "label": "Allocine"
+            },
+            {
+              "predicate": {
+                "namespace": "ebucore",
+                "label": "hasIdentifierType"
+              },
+              "label": "Allocine"
+            },
+            {
+              "predicate": {
+                "namespace": "ebucore",
+                "label": "identifierValue"
+              },
+              "label": "{{$.external_ids.allocine_id}}"
             }
           ]
         },
@@ -166,39 +139,30 @@
             {
               "predicate": {
                 "namespace": "rdf",
-                "label": "Description",
-                "identifier": "{{$.id}}_oscar"
+                "label": "type"
               },
-              "items": [
-                {
-                  "predicate": {
-                    "namespace": "rdf",
-                    "label": "type"
-                  },
-                  "label": "http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#Identifier"
-                },
-                {
-                  "predicate": {
-                    "namespace": "rdfs",
-                    "label": "label"
-                  },
-                  "label": "CNC Visa ID"
-                },
-                {
-                  "predicate": {
-                    "namespace": "ebucore",
-                    "label": "hasIdentifierType"
-                  },
-                  "label": "CNC_Visa"
-                },
-                {
-                  "predicate": {
-                    "namespace": "ebucore",
-                    "label": "identifierValue"
-                  },
-                  "label": "{{$.external_ids.cnc_visa_id}}"
-                }
-              ]
+              "label": "http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#Identifier"
+            },
+            {
+              "predicate": {
+                "namespace": "rdfs",
+                "label": "label"
+              },
+              "label": "CNC Visa ID"
+            },
+            {
+              "predicate": {
+                "namespace": "ebucore",
+                "label": "hasIdentifierType"
+              },
+              "label": "CNC_Visa"
+            },
+            {
+              "predicate": {
+                "namespace": "ebucore",
+                "label": "identifierValue"
+              },
+              "label": "{{$.external_ids.cnc_visa_id}}"
             }
           ]
         },
@@ -283,31 +247,23 @@
             {
               "predicate": {
                 "namespace": "rdf",
-                "label": "Description"
+                "label": "type"
               },
-              "items": [
-                {
-                  "predicate": {
-                    "namespace": "rdf",
-                    "label": "type"
-                  },
-                  "label": "http://ressources.idfrancetv.fr/ontologies/tag#Tag"
-                },
-                {
-                  "predicate": {
-                    "namespace": "ebucore",
-                    "label": "label"
-                  },
-                  "label": "{{$.label}}"
-                },
-                {
-                  "predicate": {
-                    "namespace": "ebucore",
-                    "label": "id"
-                  },
-                  "label": "{{$.id}}"
-                }
-              ]
+              "label": "http://ressources.idfrancetv.fr/ontologies/tag#Tag"
+            },
+            {
+              "predicate": {
+                "namespace": "ebucore",
+                "label": "label"
+              },
+              "label": "{{$.label}}"
+            },
+            {
+              "predicate": {
+                "namespace": "ebucore",
+                "label": "id"
+              },
+              "label": "{{$.id}}"
             }
           ]
         },
@@ -321,24 +277,16 @@
             {
               "predicate": {
                 "namespace": "rdf",
-                "label": "Description"
+                "label": "type"
               },
-              "items": [
-                {
-                  "predicate": {
-                    "namespace": "rdf",
-                    "label": "type"
-                  },
-                  "label": "http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#Essence"
-                },
-                {
-                  "predicate": {
-                    "namespace": "ebucore",
-                    "label": "filename"
-                  },
-                  "label": "{{$.artefacts.manifest}}"
-                }
-              ]
+              "label": "http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#Essence"
+            },
+            {
+              "predicate": {
+                "namespace": "ebucore",
+                "label": "filename"
+              },
+              "label": "{{$.artefacts.manifest}}"
             }
           ]
         },
