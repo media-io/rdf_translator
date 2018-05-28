@@ -1,22 +1,22 @@
 <http://ressources.idfrancetv.fr/medias/565f07ac-baa6-4d48-8d60-6b1354207a92> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> "http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#EditorialObject" .
 <http://ressources.idfrancetv.fr/medias/565f07ac-baa6-4d48-8d60-6b1354207a92> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#title> "Un livre, un jour"@fr .
 <http://ressources.idfrancetv.fr/medias/565f07ac-baa6-4d48-8d60-6b1354207a92> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#hasIdentifier> _:auto0 .
-_:auto0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> "http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#Identifier" .
+_:auto0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#Identifier> .
 _:auto0 <http://www.w3.org/2000/01/rdf-schema#label> "ISAN" .
 _:auto0 <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#hasIdentifierType> "ISAN" .
 _:auto0 <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#identifierValue> "isan_identifier" .
 <http://ressources.idfrancetv.fr/medias/565f07ac-baa6-4d48-8d60-6b1354207a92> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#hasIdentifier> _:auto1 .
-_:auto1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> "http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#Identifier" .
+_:auto1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#Identifier> .
 _:auto1 <http://www.w3.org/2000/01/rdf-schema#label> "OSCAR" .
 _:auto1 <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#hasIdentifierType> "OSCAR" .
 _:auto1 <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#identifierValue> "F32582765674323920181604" .
 <http://ressources.idfrancetv.fr/medias/565f07ac-baa6-4d48-8d60-6b1354207a92> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#hasIdentifier> _:auto2 .
-_:auto2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> "http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#Identifier" .
+_:auto2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#Identifier> .
 _:auto2 <http://www.w3.org/2000/01/rdf-schema#label> "Allocine" .
 _:auto2 <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#hasIdentifierType> "Allocine" .
 _:auto2 <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#identifierValue> "allocine_identifier" .
 <http://ressources.idfrancetv.fr/medias/565f07ac-baa6-4d48-8d60-6b1354207a92> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#hasIdentifier> _:auto3 .
-_:auto3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> "http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#Identifier" .
+_:auto3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#Identifier> .
 _:auto3 <http://www.w3.org/2000/01/rdf-schema#label> "CNC" .
 _:auto3 <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#hasIdentifierType> "CNC_Visa" .
 _:auto3 <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#identifierValue> "cnc_visa_identifier" .
@@ -28,27 +28,27 @@ _:auto3 <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#identifierValue> 
 <http://ressources.idfrancetv.fr/medias/565f07ac-baa6-4d48-8d60-6b1354207a92> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#durationNormalPlayTime> "PT1M29S"^^<http://www.w3.org/2001/XMLSchema#duration> .
 <http://ressources.idfrancetv.fr/medias/565f07ac-baa6-4d48-8d60-6b1354207a92> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#dateBroadcast> "2018-04-16T16:09:00+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
 <http://ressources.idfrancetv.fr/medias/565f07ac-baa6-4d48-8d60-6b1354207a92> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#hasTopic> _:auto4 .
-_:auto4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> "http://ressources.idfrancetv.fr/ontologies/tag#Tag" .
+_:auto4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ressources.idfrancetv.fr/ontologies/tag#Tag> .
 _:auto4 <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#label> "magazine culturel" .
 _:auto4 <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#id> "3556b4b4-c604-404e-9998-b61174a45d24" .
 <http://ressources.idfrancetv.fr/medias/565f07ac-baa6-4d48-8d60-6b1354207a92> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#hasTopic> _:auto5 .
-_:auto5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> "http://ressources.idfrancetv.fr/ontologies/tag#Tag" .
+_:auto5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ressources.idfrancetv.fr/ontologies/tag#Tag> .
 _:auto5 <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#label> "magazine littéraire" .
 _:auto5 <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#id> "3e43cc24-4331-4288-a978-d6e900a8b3f4" .
 <http://ressources.idfrancetv.fr/medias/565f07ac-baa6-4d48-8d60-6b1354207a92> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#hasTopic> _:auto6 .
-_:auto6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> "http://ressources.idfrancetv.fr/ontologies/tag#Tag" .
+_:auto6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ressources.idfrancetv.fr/ontologies/tag#Tag> .
 _:auto6 <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#label> "émissions culturelles" .
 _:auto6 <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#id> "e11b7abd-07af-4eea-9e2b-122d81353a62" .
 <http://ressources.idfrancetv.fr/medias/565f07ac-baa6-4d48-8d60-6b1354207a92> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#hasTopic> _:auto7 .
-_:auto7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> "http://ressources.idfrancetv.fr/ontologies/tag#Tag" .
+_:auto7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ressources.idfrancetv.fr/ontologies/tag#Tag> .
 _:auto7 <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#label> "spectacles & culture" .
 _:auto7 <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#id> "9e893c62-c9be-4fe5-8635-eaebfa461b3d" .
 <http://ressources.idfrancetv.fr/medias/565f07ac-baa6-4d48-8d60-6b1354207a92> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#hasTopic> _:auto8 .
-_:auto8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> "http://ressources.idfrancetv.fr/ontologies/tag#Tag" .
+_:auto8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ressources.idfrancetv.fr/ontologies/tag#Tag> .
 _:auto8 <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#label> "littérature" .
 _:auto8 <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#id> "3c1e2af5-5e6e-4b02-a2e4-866e91739847" .
 <http://ressources.idfrancetv.fr/medias/565f07ac-baa6-4d48-8d60-6b1354207a92> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#hasRelatedResource> _:auto9 .
-_:auto9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> "http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#Essence" .
+_:auto9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#Essence> .
 _:auto9 <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#filename> "http://videos-pmd.francetv.fr/innovation/testing/1a8c746c-1621-45fe-adeb-28e85554e852/2018_05_04__10_17_06/manifest.mpd" .
 <http://ressources.idfrancetv.fr/medias/565f07ac-baa6-4d48-8d60-6b1354207a92> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#hasRelatedImage> _:auto10 .
 _:auto10 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#Image> .

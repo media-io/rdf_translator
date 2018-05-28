@@ -30,7 +30,8 @@
                   "namespace": "rdf",
                   "label": "type"
                 },
-                "label": "http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#Identifier"
+                "label": "http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#Identifier",
+                "as_uri": true
               },
             {
               "predicate": {
@@ -67,7 +68,8 @@
                 "namespace": "rdf",
                 "label": "type"
               },
-              "label": "http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#Identifier"
+              "label": "http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#Identifier",
+              "as_uri": true
             },
             {
               "predicate": {
@@ -104,7 +106,8 @@
                 "namespace": "rdf",
                 "label": "type"
               },
-              "label": "http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#Identifier"
+              "label": "http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#Identifier",
+              "as_uri": true
             },
             {
               "predicate": {
@@ -141,7 +144,8 @@
                 "namespace": "rdf",
                 "label": "type"
               },
-              "label": "http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#Identifier"
+              "label": "http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#Identifier",
+              "as_uri": true
             },
             {
               "predicate": {
@@ -249,7 +253,8 @@
                 "namespace": "rdf",
                 "label": "type"
               },
-              "label": "http://ressources.idfrancetv.fr/ontologies/tag#Tag"
+              "label": "http://ressources.idfrancetv.fr/ontologies/tag#Tag",
+              "as_uri": true
             },
             {
               "predicate": {
@@ -279,7 +284,8 @@
                 "namespace": "rdf",
                 "label": "type"
               },
-              "label": "http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#Essence"
+              "label": "http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#Essence",
+              "as_uri": true
             },
             {
               "predicate": {
