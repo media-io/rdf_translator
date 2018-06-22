@@ -21,6 +21,43 @@
         {
           "predicate": {
             "namespace": "ebucore",
+            "label": "hasIdentifier"
+          },
+          "items": [
+            {
+              "predicate": {
+                  "namespace": "rdf",
+                  "label": "type"
+                },
+                "label": "http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#Identifier",
+                "as_uri": true
+              },
+            {
+              "predicate": {
+                "namespace": "rdfs",
+                "label": "label"
+              },
+              "label": "SIvideo"
+            },
+            {
+              "predicate": {
+                "namespace": "ebucore",
+                "label": "hasIdentifierType"
+              },
+              "label": "SIvideo"
+            },
+            {
+              "predicate": {
+                "namespace": "ebucore",
+                "label": "identifierValue"
+              },
+              "label": "urn::uuid:{{$.id}}"
+            }
+          ]
+        },
+        {
+          "predicate": {
+            "namespace": "ebucore",
             "label": "hasIdentifier",
             "condition": "$.external_ids.isan"
           },
@@ -205,6 +242,20 @@
         {
           "predicate": {
             "namespace": "ebucore",
+            "label": "seasonNumber"
+          },
+          "label": "{{$.season_number}}"
+        },
+        {
+          "predicate": {
+            "namespace": "ebucore",
+            "label": "episodeNumber"
+          },
+          "label": "{{$.episode_number}}"
+        },
+        {
+          "predicate": {
+            "namespace": "ebucore",
             "label": "dateModified"
           },
           "label": "{{$.updated_at}}",
@@ -240,6 +291,30 @@
           },
           "label": "{{$.broadcasted_at}}",
           "datatype": "http://www.w3.org/2001/XMLSchema#dateTime"
+        },
+        {
+          "elements": "$.audio_tracks.*",
+          "predicate": {
+            "namespace": "ebucore",
+            "label": "hasRelatedAudioProgramme"
+          },
+          "items": [
+            {
+              "predicate": {
+                "namespace": "ebucore",
+                "label": "audioProgramme"
+              },
+              "items": [
+                {
+                  "predicate": {
+                    "namespace": "rdf",
+                    "label": "type"
+                  },
+                  "label": "ftv_audio:complet_2.0_{{$.id}}"
+                }
+              ]
+            }
+          ]
         },
         {
           "elements": "$.tags.*",

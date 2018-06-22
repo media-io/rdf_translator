@@ -107,6 +107,16 @@
       "id": "francais",
       "label": "Français",
       "code": "FRA"
+    },
+    {
+      "id": "audiodescription",
+      "label": "Audiodescription",
+      "code": "QAD"
+    },
+    {
+      "id": "version-originale",
+      "label": "Version Originale",
+      "code": "QAA"
     }
   ],
   "text_tracks": [
