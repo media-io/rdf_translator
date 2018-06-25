@@ -293,6 +293,14 @@
           "datatype": "http://www.w3.org/2001/XMLSchema#dateTime"
         },
         {
+          "predicate": {
+            "namespace": "francetv",
+            "label": "acs_enabled"
+          },
+          "label": "{{$.acs_enabled}}",
+          "datatype": "http://www.w3.org/2001/XMLSchema#boolean"
+        },
+        {
           "elements": "$.audio_tracks.*",
           "predicate": {
             "namespace": "ebucore",

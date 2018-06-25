@@ -41,7 +41,7 @@ mod tests {
         let content = converter.to_ntriple_string();
         println!("{}", content);
         assert!(content == ntriple_struct);
-
+        assert!(false);
         // let mut turtle_struct = String::new();
         // let mut turtle_file = File::open("tests/turtle.txt").unwrap();
         // let _ = turtle_file.read_to_string(&mut turtle_struct).unwrap();

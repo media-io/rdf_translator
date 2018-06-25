@@ -147,7 +147,6 @@ impl Mapper {
         item: &Item
     ) {
         let label = item.label.to_owned();
-
         if let Some(ref condition) = item.predicate.condition {
             let selector = Selector::new(&condition).unwrap();
             let founds: Vec<&Value> =
@@ -157,7 +156,6 @@ impl Mapper {
                 .collect();
 
             if founds.is_empty() {
-                // continue;
                 return;
             }
         }
@@ -186,6 +184,10 @@ impl Mapper {
         }
 
         let object_labels = parse_label(&label.unwrap(), document);
+        if item.predicate.namespace == Some("francetv".to_string()){
+            println!("{:?}:{}", item.predicate.namespace, item.predicate.label);
+            println!("{:?}", object_labels);
+        }
         let object_label = object_labels.first();
 
         if object_label.is_none() {
@@ -194,7 +196,6 @@ impl Mapper {
         }
 
         let content = object_label.unwrap();
-
         match (item.language.as_str(), item.datatype.as_str(), item.as_uri) {
             ("", "", false) => converter.add(
                 subject,

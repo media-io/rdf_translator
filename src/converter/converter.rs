@@ -1,5 +1,6 @@
 use definition::definition::Definition;
 use definition::ebucore::EbuCore;
+use definition::francetv::FranceTv;
 use definition::owl::Owl;
 use definition::rdf::Rdf;
 use definition::rdfs::Rdfs;
@@ -37,6 +38,9 @@ macro_rules! add {
       Some("ebucore") => {
         add!(definition => EbuCore{}, $graph, $subject, $label, $object)
       },
+      Some("francetv") => {
+        add!(definition => FranceTv{}, $graph, $subject, $label, $object)
+      },
       Some("owl") => {
         add!(definition => Owl{}, $graph, $subject, $label, $object)
       },
@@ -67,6 +71,7 @@ pub struct Converter {
 impl Converter {
     pub fn new() -> Converter {
         let ebucore = EbuCore {};
+        let francetv = FranceTv {};
         let owl = Owl {};
         let rdf = Rdf {};
         let rdfs = Rdfs {};
@@ -77,6 +82,7 @@ impl Converter {
         build!(graph, Definition::get_namespace(&rdfs), "rdfs");
         build!(graph, Definition::get_namespace(&owl), "owl");
         build!(graph, Definition::get_namespace(&ebucore), "ebucore");
+        build!(graph, Definition::get_namespace(&francetv), "francetv");
         build!(graph, Definition::get_namespace(&xsi), "xsi");
         build!(graph, "urn:ebu:metadata-schema:ebuCore_2012", "default");
 
