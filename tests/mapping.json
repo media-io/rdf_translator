@@ -310,7 +310,7 @@
             {
               "predicate": {
                 "namespace": "ebucore",
-                "label": "audioProgramme"
+                "label": "AudioProgramme"
               },
               "items": [
                 {
@@ -319,6 +319,30 @@
                     "label": "type"
                   },
                   "label": "ftv_audio:complet_2.0_{{$.id}}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "elements": "$.text_tracks.*",
+          "predicate": {
+            "namespace": "ebucore",
+            "label": "hasRelatedTextLine"
+          },
+          "items": [
+            {
+              "predicate": {
+                "namespace": "ebucore",
+                "label": "TextLine"
+              },
+              "items": [
+                {
+                  "predicate": {
+                    "namespace": "rdf",
+                    "label": "type"
+                  },
+                  "label": "ftv_sous-titres:{{$.id}}"
                 }
               ]
             }

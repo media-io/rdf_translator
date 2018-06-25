@@ -184,10 +184,6 @@ impl Mapper {
         }
 
         let object_labels = parse_label(&label.unwrap(), document);
-        if item.predicate.namespace == Some("francetv".to_string()){
-            println!("{:?}:{}", item.predicate.namespace, item.predicate.label);
-            println!("{:?}", object_labels);
-        }
         let object_label = object_labels.first();
 
         if object_label.is_none() {
