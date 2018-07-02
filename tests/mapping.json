@@ -349,6 +349,23 @@
           ]
         },
         {
+          "predicate": {
+            "namespace": "ebucore",
+            "label": "hasGenre",
+            "condition": "$.category.id"
+          },
+          "items": [
+            {
+              "predicate": {
+                "namespace": "rdf",
+                "label": "type"
+              },
+              "label": "http://ressources.idfrancetv.fr/ontologies/genre#{{$.category.id}}",
+              "as_uri": true
+            }
+          ]
+        },
+        {
           "elements": "$.tags.*",
           "predicate": {
             "namespace": "ebucore",
@@ -380,6 +397,139 @@
           ]
         },
         {
+          "elements": "$.credits.*",
+          "predicate": {
+            "namespace": "ebucore",
+            "label": "hasContributor"
+          },
+          "items": [
+            {
+              "predicate": {
+                "namespace": "rdf",
+                "label": "type"
+              },
+              "label": "http://ressources.idfrancetv.fr/ontologies/role#{{$.role.id}}",
+              "as_uri": true
+            },
+            {
+              "predicate": {
+                "namespace": "ebucore",
+                "label": "isAgent"
+              },
+              "items": [
+                {
+                  "predicate": {
+                    "namespace": "rdf",
+                    "label": "type"
+                  },
+                  "label": "http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#Person",
+                  "as_uri": true
+                },
+                {
+                  "predicate": {
+                    "namespace": "ebucore",
+                    "label": "givenName"
+                  },
+                  "label": "{{$.first_name}}"
+                },
+                {
+                  "predicate": {
+                    "namespace": "ebucore",
+                    "label": "familyName"
+                  },
+                  "label": "{{$.last_name}}"
+                }
+              ]
+            },
+            {
+              "predicate": {
+                "namespace": "ebucore",
+                "label": "isCharacter",
+                "condition": "$.character"
+              },
+              "items": [
+                {
+                  "predicate": {
+                    "namespace": "rdf",
+                    "label": "type"
+                  },
+                  "label": "http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#Character",
+                  "as_uri": true
+                },
+                {
+                  "predicate": {
+                    "namespace": "ebucore",
+                    "label": "characterName"
+                  },
+                  "label": "{{$.character}}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "elements": "$.groups.*",
+          "predicate": {
+            "namespace": "ebucore",
+            "label": "isMemberOf"
+          },
+          "items": [
+            {
+              "predicate": {
+                "namespace": "rdf",
+                "label": "type"
+              },
+              "label": "http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#Group",
+              "as_uri": true
+            },
+            {
+              "predicate": {
+                "namespace": "ebucore",
+                "label": "groupId"
+              },
+              "label": "{{$.id}}"
+            },
+            {
+              "predicate": {
+                "namespace": "ebucore",
+                "label": "groupName"
+              },
+              "label": "{{$.label}}"
+            },
+            {
+              "predicate": {
+                "namespace": "ebucore",
+                "label": "groupDescription"
+              },
+              "label": "{{$.description}}"
+            }
+          ]
+        },
+        {
+          "predicate": {
+            "namespace": "ebucore",
+            "label": "References",
+            "condition": "$.parent_id"
+          },
+          "items": [
+            {
+              "predicate": {
+                "namespace": "rdf",
+                "label": "type"
+              },
+              "label": "http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#EditorialObject",
+              "as_uri": true
+            },
+            {
+              "predicate": {
+                "namespace": "ebucore",
+                "label": "resourceId"
+              },
+              "label": "http://ressources.idfrancetv.fr/medias/{{$.parent_id}}"
+            }
+          ]
+        },
+        {
           "predicate": {
             "namespace": "ebucore",
             "label": "hasRelatedResource",
@@ -400,6 +550,135 @@
                 "label": "filename"
               },
               "label": "{{$.artefacts.manifest}}"
+            },
+            {
+              "predicate": {
+                "namespace": "ebucore",
+                "label": "dateCreated"
+              },
+              "label": "{{$.created_at}}",
+              "datatype": "http://www.w3.org/2001/XMLSchema#dateTime"
+            },
+            {
+              "predicate": {
+                "namespace": "ebucore",
+                "label": "dateCreated"
+              },
+              "label": "{{$.updated_at}}",
+              "datatype": "http://www.w3.org/2001/XMLSchema#dateTime"
+            },
+            {
+              "predicate": {
+                "namespace": "ebucore",
+                "label": "hasPublicationEvent"
+              },
+              "items": [
+                {
+                  "predicate": {
+                    "namespace": "rdf",
+                    "label": "type"
+                  },
+                  "label": "http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#PublicationEvent",
+                  "as_uri": true
+                },
+                {
+                  "predicate": {
+                    "namespace": "ebucore",
+                    "label": "publicationChannel",
+                    "condition": "$.channel.id"
+                  },
+                  "items": [
+                    {
+                      "predicate": {
+                        "namespace": "ebucore",
+                        "label": "publicationChannelId"
+                      },
+                      "label": "{{$.channel.id}}"
+                    },
+                    {
+                      "predicate": {
+                        "namespace": "ebucore",
+                        "label": "publicationChannelName"
+                      },
+                      "label": "{{$.channel.label}}"
+                    }
+                  ]
+                },
+                {
+                  "predicate": {
+                    "namespace": "ebucore",
+                    "label": "publicationStartDateTime",
+                    "condition": "$.broadcasted_at"
+                  },
+                  "label": "{{$.broadcasted_at}}",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#dateTime"
+                },
+                {
+                  "predicate": {
+                    "namespace": "ebucore",
+                    "label": "durationNormalPlayTime",
+                    "condition": "$.duration"
+                  },
+                  "label": "{{$.duration}}",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#duration"
+                },
+                {
+                  "predicate": {
+                    "namespace": "ebucore",
+                    "label": "live"
+                  },
+                  "label": "{{$.broadcasted_live}}",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#boolean"
+                },
+                {
+                  "predicate": {
+                    "namespace": "ebucore",
+                    "label": "free"
+                  },
+                  "label": "{{$.drm}}",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#boolean"
+                },
+                {
+                  "predicate": {
+                    "namespace": "ebucore",
+                    "label": "firstShowing"
+                  },
+                  "label": "{{$.previously_broadcasted}}",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#boolean"
+                },
+                {
+                  "predicate": {
+                    "namespace": "ebucore",
+                    "label": "firstShowingThisService"
+                  },
+                  "label": "{{$.previously_broadcasted_on_this_channel}}",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#boolean"
+                },
+                {
+                  "predicate": {
+                    "namespace": "ebucore",
+                    "label": "hasTargetAudience"
+                  },
+                  "items" : [
+                    {
+                      "predicate": {
+                        "namespace": "rdf",
+                        "label": "type"
+                      },
+                      "label": "http://ressources.idfrancetv.fr/ontologies/csa#{{$.rating.id}}",
+                      "as_uri": true
+                    }
+                  ]
+                },
+                {
+                  "predicate": {
+                    "namespace": "ebucore",
+                    "label": "midRollAdAlowed"
+                  },
+                  "label": "{{$.midrollable}}",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#boolean"
+                }
+              ]
             }
           ]
         },

@@ -78,7 +78,10 @@
     "id": "integrale",
     "label": "Intégrale"
   },
-  "rating": null,
+  "rating": {
+    "id": "deconseille-aux-10-ans",
+    "label": "Déconseillé aux -10 ans"
+  },
   "parts": [],
   "credits": [
     {
@@ -88,6 +91,24 @@
       },
       "first_name": "Olivier",
       "last_name": "Barrot",
+      "character": null
+    },
+    {
+      "role": {
+        "id": "acteur",
+        "label": "Acteur"
+      },
+      "first_name": "Alex",
+      "last_name": "Gador",
+      "character": "Henri"
+    },
+    {
+      "role": {
+        "id": "scenariste",
+        "label": "Scénariste"
+      },
+      "first_name": "Hervé",
+      "last_name": "Hadmar",
       "character": null
     }
   ],
@@ -131,7 +152,7 @@
   "previously_broadcasted": false,
   "previously_broadcasted_on_this_channel": false,
   "broadcasted_live": false,
-  "parent_id": null,
+  "parent_id": "7a81ae96-198d-408f-9645-390ea45e7669",
   "allocine_press_stars": null,
   "allocine_users_stars": null,
   "licensing": null,
