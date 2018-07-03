@@ -502,6 +502,30 @@
                 "label": "groupDescription"
               },
               "label": "{{$.description}}"
+            },
+            {
+              "predicate": {
+                "namespace": "ebucore",
+                "label": "hasSeason",
+                "condition": "$.season_number"
+              },
+              "items": [
+                {
+                  "predicate": {
+                    "namespace": "rdf",
+                    "label": "type"
+                  },
+                  "label": "http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#Season",
+                  "as_uri": true
+                },
+                {
+                  "predicate": {
+                    "namespace": "ebucore",
+                    "label": "seasonNumber"
+                  },
+                  "label": "{{$.season_number}}"
+                }
+              ]
             }
           ]
         },

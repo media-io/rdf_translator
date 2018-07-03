@@ -27,6 +27,8 @@ _:auto4 <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#hasIdentifierType
 _:auto4 <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#identifierValue> "cnc_visa_identifier" .
 <http://ressources.idfrancetv.fr/medias/565f07ac-baa6-4d48-8d60-6b1354207a92> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#alternativeTitle> "«Comme un chef», de Benoît Peeters et Aurélia Aurita (Casterman)"@fr .
 <http://ressources.idfrancetv.fr/medias/565f07ac-baa6-4d48-8d60-6b1354207a92> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#synopsis> "Olivier Barrot présente un ouvrage récemment paru en librairie."@fr .
+<http://ressources.idfrancetv.fr/medias/565f07ac-baa6-4d48-8d60-6b1354207a92> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#seasonNumber> "6" .
+<http://ressources.idfrancetv.fr/medias/565f07ac-baa6-4d48-8d60-6b1354207a92> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#episodeNumber> "10" .
 <http://ressources.idfrancetv.fr/medias/565f07ac-baa6-4d48-8d60-6b1354207a92> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#dateModified> "2018-04-16T16:23:21+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
 <http://ressources.idfrancetv.fr/medias/565f07ac-baa6-4d48-8d60-6b1354207a92> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#dateCreated> "2018-04-12T05:40:59+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
 <http://ressources.idfrancetv.fr/medias/565f07ac-baa6-4d48-8d60-6b1354207a92> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#hasCreator> "workers.user.prod@francetv.fr" .
@@ -90,33 +92,40 @@ _:auto25 <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#givenName> "Herv
 _:auto25 <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#familyName> "Hadmar" .
 <http://ressources.idfrancetv.fr/medias/565f07ac-baa6-4d48-8d60-6b1354207a92> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#isMemberOf> _:auto26 .
 _:auto26 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#Group> .
-_:auto26 <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#groupId> "44941e64-8f67-4807-95b5-0e040753aa8a" .
-_:auto26 <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#groupName> "Un livre, un jour" .
-<http://ressources.idfrancetv.fr/medias/565f07ac-baa6-4d48-8d60-6b1354207a92> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#References> _:auto27 .
-_:auto27 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#EditorialObject> .
-_:auto27 <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#resourceId> "http://ressources.idfrancetv.fr/medias/7a81ae96-198d-408f-9645-390ea45e7669" .
-<http://ressources.idfrancetv.fr/medias/565f07ac-baa6-4d48-8d60-6b1354207a92> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#hasRelatedResource> _:auto28 .
-_:auto28 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#Essence> .
-_:auto28 <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#filename> "http://videos-pmd.francetv.fr/innovation/testing/1a8c746c-1621-45fe-adeb-28e85554e852/2018_05_04__10_17_06/manifest.mpd" .
-_:auto28 <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#dateCreated> "2018-04-12T05:40:59+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
-_:auto28 <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#dateCreated> "2018-04-16T16:23:21+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
-_:auto28 <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#hasPublicationEvent> _:auto29 .
-_:auto29 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#PublicationEvent> .
-_:auto29 <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#publicationChannel> _:auto30 .
-_:auto30 <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#publicationChannelId> "france-3" .
-_:auto30 <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#publicationChannelName> "france 3" .
-_:auto29 <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#publicationStartDateTime> "2018-04-16T16:09:00+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
-_:auto29 <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#durationNormalPlayTime> "PT1M29S"^^<http://www.w3.org/2001/XMLSchema#duration> .
-_:auto29 <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#hasTargetAudience> _:auto31 .
-_:auto31 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ressources.idfrancetv.fr/ontologies/csa#deconseille-aux-10-ans> .
-<http://ressources.idfrancetv.fr/medias/565f07ac-baa6-4d48-8d60-6b1354207a92> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#hasRelatedImage> _:auto32 .
-_:auto32 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#Image> .
-_:auto32 <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#resourceId> "urn::uuid:bcab07ed-417b-4984-804a-6ac6b2238007" .
-_:auto32 <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#fileSize> "529068"^^<http://www.w3.org/2001/XMLSchema#unsignedLong> .
-_:auto32 <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#hasFormat> "urn:mimetype:image/jpeg" .
-_:auto32 <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#height> "1080"^^<http://www.w3.org/2001/XMLSchema#integer> .
-_:auto32 <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#width> "1920"^^<http://www.w3.org/2001/XMLSchema#integer> .
-_:auto32 <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#hashValue> "urn:md5:269556106e57ef6122fdde0210d513f6" .
-_:auto32 <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#locator> "https://assets.webservices.francetelevisions.fr/v1/assets/images/26/95/56/fa47ce81-f217-479c-b49b-5b03d12bd20d.jpeg" .
-_:auto32 <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#dateModified> "2018-04-12T05:41:08+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
-_:auto32 <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#dateCreated> "2018-04-12T05:41:08+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+_:auto26 <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#groupId> "d9b3c754-bc3b-4b25-8623-9a29068b9af6" .
+_:auto26 <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#groupName> "Couleurs outremers - Saison 6" .
+_:auto26 <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#hasSeason> _:auto27 .
+_:auto27 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#Season> .
+_:auto27 <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#seasonNumber> "6" .
+<http://ressources.idfrancetv.fr/medias/565f07ac-baa6-4d48-8d60-6b1354207a92> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#isMemberOf> _:auto28 .
+_:auto28 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#Group> .
+_:auto28 <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#groupId> "44941e64-8f67-4807-95b5-0e040753aa8a" .
+_:auto28 <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#groupName> "Un livre, un jour" .
+<http://ressources.idfrancetv.fr/medias/565f07ac-baa6-4d48-8d60-6b1354207a92> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#References> _:auto29 .
+_:auto29 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#EditorialObject> .
+_:auto29 <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#resourceId> "http://ressources.idfrancetv.fr/medias/7a81ae96-198d-408f-9645-390ea45e7669" .
+<http://ressources.idfrancetv.fr/medias/565f07ac-baa6-4d48-8d60-6b1354207a92> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#hasRelatedResource> _:auto30 .
+_:auto30 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#Essence> .
+_:auto30 <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#filename> "http://videos-pmd.francetv.fr/innovation/testing/1a8c746c-1621-45fe-adeb-28e85554e852/2018_05_04__10_17_06/manifest.mpd" .
+_:auto30 <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#dateCreated> "2018-04-12T05:40:59+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+_:auto30 <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#dateCreated> "2018-04-16T16:23:21+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+_:auto30 <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#hasPublicationEvent> _:auto31 .
+_:auto31 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#PublicationEvent> .
+_:auto31 <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#publicationChannel> _:auto32 .
+_:auto32 <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#publicationChannelId> "france-3" .
+_:auto32 <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#publicationChannelName> "france 3" .
+_:auto31 <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#publicationStartDateTime> "2018-04-16T16:09:00+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+_:auto31 <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#durationNormalPlayTime> "PT1M29S"^^<http://www.w3.org/2001/XMLSchema#duration> .
+_:auto31 <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#hasTargetAudience> _:auto33 .
+_:auto33 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ressources.idfrancetv.fr/ontologies/csa#deconseille-aux-10-ans> .
+<http://ressources.idfrancetv.fr/medias/565f07ac-baa6-4d48-8d60-6b1354207a92> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#hasRelatedImage> _:auto34 .
+_:auto34 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#Image> .
+_:auto34 <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#resourceId> "urn::uuid:bcab07ed-417b-4984-804a-6ac6b2238007" .
+_:auto34 <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#fileSize> "529068"^^<http://www.w3.org/2001/XMLSchema#unsignedLong> .
+_:auto34 <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#hasFormat> "urn:mimetype:image/jpeg" .
+_:auto34 <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#height> "1080"^^<http://www.w3.org/2001/XMLSchema#integer> .
+_:auto34 <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#width> "1920"^^<http://www.w3.org/2001/XMLSchema#integer> .
+_:auto34 <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#hashValue> "urn:md5:269556106e57ef6122fdde0210d513f6" .
+_:auto34 <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#locator> "https://assets.webservices.francetelevisions.fr/v1/assets/images/26/95/56/fa47ce81-f217-479c-b49b-5b03d12bd20d.jpeg" .
+_:auto34 <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#dateModified> "2018-04-12T05:41:08+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+_:auto34 <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#dateCreated> "2018-04-12T05:41:08+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> .

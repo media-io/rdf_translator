@@ -41,6 +41,16 @@
   ],
   "groups": [
     {
+      "id": "d9b3c754-bc3b-4b25-8623-9a29068b9af6",
+      "label": "Couleurs outremers - Saison 6",
+      "season_number": 6,
+      "number_of_episodes": null,
+      "description": null,
+      "created_by": "import.pgep@francetv.fr",
+      "created_via": "import-plurimedia-epg",
+      "images": []
+    },
+    {
       "id": "44941e64-8f67-4807-95b5-0e040753aa8a",
       "label": "Un livre, un jour",
       "season_number": null,
@@ -48,15 +58,11 @@
       "description": null,
       "created_by": "workers.user.prod@francetv.fr",
       "created_via": "import-plurimedia-epg",
-      "external_ids": {
-        "plurimedia_collection_id": null
-      },
-      "plurimedia_collection_id": null,
       "images": []
     }
   ],
-  "season_number": null,
-  "episode_number": null,
+  "season_number": 6,
+  "episode_number": 10,
   "copyright": null,
   "created_by": "workers.user.prod@francetv.fr",
   "created_via": "import-plurimedia-epg",
