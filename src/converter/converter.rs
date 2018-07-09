@@ -17,12 +17,15 @@ use rdf::writer::rdf_writer::RdfWriter;
 use rdf::writer::turtle_writer::TurtleWriter;
 
 macro_rules! build {
-  ($graph:expr, $namespace:expr, $label:expr) => (
-    $graph.add_namespace(&Namespace::new($label.to_string(), Uri::new($namespace.to_owned())))
-  );
-  (node => $graph:expr, $namespace:expr, $label:expr) => (
-    $graph.create_uri_node(&Uri::new(Definition::get_label($namespace, $label)))
-  )
+    ($graph: expr, $namespace: expr, $label: expr) => {
+        $graph.add_namespace(&Namespace::new(
+            $label.to_string(),
+            Uri::new($namespace.to_owned()),
+        ))
+    };
+    (node => $graph: expr, $namespace: expr, $label: expr) => {
+        $graph.create_uri_node(&Uri::new(Definition::get_label($namespace, $label)))
+    };
 }
 
 macro_rules! add {

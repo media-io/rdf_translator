@@ -20,10 +20,14 @@ pub struct Item {
     pub elements: Option<String>,
     pub predicate: Predicate,
     pub label: Option<String>,
-    #[serde(default)] pub language: String,
-    #[serde(default)] pub datatype: String,
-    #[serde(default)] pub as_uri: bool,
-    #[serde(default)] pub items: Vec<Item>,
+    #[serde(default)]
+    pub language: String,
+    #[serde(default)]
+    pub datatype: String,
+    #[serde(default)]
+    pub as_uri: bool,
+    #[serde(default)]
+    pub items: Vec<Item>,
 }
 
 #[derive(Debug, Serialize, Deserialize)]
@@ -121,19 +125,19 @@ impl Mapper {
     pub fn process(&self, document: &Value, converter: &mut Converter) {
         for object in &self.objects {
             if let Some(ref elements_path) = object.elements {
-                let selector = Selector::new(&elements_path).unwrap();
+                let selector = Selector::new(elements_path).unwrap();
                 let elements: Vec<&Value> = selector.find(document).collect();
 
                 for element in elements {
-                    for subject_label in parse_label(&object.label, &element) {
+                    for subject_label in parse_label(&object.label, element) {
                         let subject = converter.create_subject(subject_label.as_str());
-                        self.process_relations(&element, converter, &subject, &object.items)
+                        self.process_relations(element, converter, &subject, &object.items)
                     }
                 }
             } else {
-                for subject_label in parse_label(&object.label, &document) {
+                for subject_label in parse_label(&object.label, document) {
                     let subject = converter.create_subject(subject_label.as_str());
-                    self.process_relations(&document, converter, &subject, &object.items)
+                    self.process_relations(document, converter, &subject, &object.items)
                 }
             }
         }
@@ -144,16 +148,12 @@ impl Mapper {
         document: &Value,
         converter: &mut Converter,
         subject: &Node,
-        item: &Item
+        item: &Item,
     ) {
         let label = item.label.to_owned();
         if let Some(ref condition) = item.predicate.condition {
-            let selector = Selector::new(&condition).unwrap();
-            let founds: Vec<&Value> =
-                selector
-                .find(document)
-                .filter(|x| !x.is_null())
-                .collect();
+            let selector = Selector::new(condition).unwrap();
+            let founds: Vec<&Value> = selector.find(document).filter(|x| !x.is_null()).collect();
 
             if founds.is_empty() {
                 return;
@@ -161,16 +161,15 @@ impl Mapper {
         }
 
         if label.is_none() {
-            let child_subject =
-                if let Some(ref identifier) = item.predicate.identifier {
-                    if let Some(id) = parse_label(identifier, document).first() {
-                        converter.create_blank_node_with_id(id)
-                    } else {
-                        converter.create_blank_node()
-                    }
+            let child_subject = if let Some(ref identifier) = item.predicate.identifier {
+                if let Some(id) = parse_label(identifier, document).first() {
+                    converter.create_blank_node_with_id(id)
                 } else {
                     converter.create_blank_node()
-                };
+                }
+            } else {
+                converter.create_blank_node()
+            };
 
             converter.add_blank(
                 subject,
@@ -233,7 +232,7 @@ impl Mapper {
     ) {
         for item in items.iter() {
             if let Some(ref elements_path) = item.elements {
-                let selector = Selector::new(&elements_path).unwrap();
+                let selector = Selector::new(elements_path).unwrap();
                 let elements: Vec<&Value> = selector.find(document).collect();
                 for element in elements {
                     self.process_item(element, converter, subject, item);

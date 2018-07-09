@@ -1,4 +1,3 @@
-
 extern crate rdf_translator;
 #[macro_use]
 extern crate serde_json;

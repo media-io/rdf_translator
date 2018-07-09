@@ -1,4 +1,3 @@
-
 pub trait Definition {
     fn get_namespace(&self) -> &str;
 
