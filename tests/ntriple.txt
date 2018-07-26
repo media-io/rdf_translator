@@ -34,7 +34,7 @@ _:auto4 <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#identifierValue> 
 <http://ressources.idfrancetv.fr/medias/565f07ac-baa6-4d48-8d60-6b1354207a92> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#hasCreator> "workers.user.prod@francetv.fr" .
 <http://ressources.idfrancetv.fr/medias/565f07ac-baa6-4d48-8d60-6b1354207a92> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#durationNormalPlayTime> "PT1M29S"^^<http://www.w3.org/2001/XMLSchema#duration> .
 <http://ressources.idfrancetv.fr/medias/565f07ac-baa6-4d48-8d60-6b1354207a92> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#dateBroadcast> "2018-04-16T16:09:00+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
-<http://ressources.idfrancetv.fr/medias/565f07ac-baa6-4d48-8d60-6b1354207a92> <http://`ressources.idfrancetv.fr/ontologies#acs_enabled> "true"^^<http://www.w3.org/2001/XMLSchema#boolean> .
+<http://ressources.idfrancetv.fr/medias/565f07ac-baa6-4d48-8d60-6b1354207a92> <http://ressources.idfrancetv.fr/ontologies#acs_enabled> "true"^^<http://www.w3.org/2001/XMLSchema#boolean> .
 <http://ressources.idfrancetv.fr/medias/565f07ac-baa6-4d48-8d60-6b1354207a92> <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#hasRelatedAudioProgramme> _:auto5 .
 _:auto5 <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#AudioProgramme> _:auto6 .
 _:auto6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> "ftv_audio:complet_2.0_francais" .

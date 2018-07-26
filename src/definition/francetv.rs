@@ -1,6 +1,6 @@
 use definition::definition::Definition;
 
-const FRANCETV_NAMESPACE: &str = "http://`ressources.idfrancetv.fr/ontologies#";
+const FRANCETV_NAMESPACE: &str = "http://ressources.idfrancetv.fr/ontologies#";
 
 #[derive(Debug)]
 pub struct FranceTv {}
