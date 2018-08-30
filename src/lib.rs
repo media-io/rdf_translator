@@ -17,11 +17,11 @@ pub use mapper::loader::Mapper;
 mod tests {
     #[test]
     fn json_path() {
+        use Converter;
+        use Mapper;
         use serde_json;
         use std::fs::File;
         use std::io::Read;
-        use Converter;
-        use Mapper;
 
         let mut video_struct = String::new();
         let mut video_file = File::open("tests/video.json").unwrap();
