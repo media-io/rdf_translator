@@ -1,4 +1,4 @@
-use converter::converter::Converter;
+use converter::Converter;
 use jsonpath::Selector;
 use rdf::node::Node;
 use regex::Regex;

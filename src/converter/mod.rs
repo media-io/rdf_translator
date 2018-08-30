@@ -1,4 +1,4 @@
-use definition::definition::Definition;
+use definition::Definition;
 use definition::ebucore::EbuCore;
 use definition::francetv::FranceTv;
 use definition::owl::Owl;

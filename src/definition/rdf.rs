@@ -1,4 +1,4 @@
-use definition::definition::Definition;
+use definition::Definition;
 
 const RDF_NAMESPACE: &str = "http://www.w3.org/1999/02/22-rdf-syntax-ns#";
 

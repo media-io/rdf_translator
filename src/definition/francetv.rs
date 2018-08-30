@@ -1,4 +1,4 @@
-use definition::definition::Definition;
+use definition::Definition;
 
 const FRANCETV_NAMESPACE: &str = "http://ressources.idfrancetv.fr/ontologies#";
 

@@ -1,4 +1,4 @@
-use definition::definition::Definition;
+use definition::Definition;
 
 const EBUCORE_NAMESPACE: &str = "http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#";
 

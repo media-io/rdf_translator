@@ -1,4 +1,4 @@
-use definition::definition::Definition;
+use definition::Definition;
 
 const UNDEFINED_NAMESPACE: &str = "";
 

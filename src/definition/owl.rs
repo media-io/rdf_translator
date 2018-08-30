@@ -1,4 +1,4 @@
-use definition::definition::Definition;
+use definition::Definition;
 
 const OWL_NAMESPACE: &str = "http://www.w3.org/2002/07/owl#";
 

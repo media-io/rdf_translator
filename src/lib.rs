@@ -10,7 +10,7 @@ pub mod converter;
 pub mod definition;
 pub mod mapper;
 
-pub use converter::converter::Converter;
+pub use converter::Converter;
 pub use mapper::loader::Mapper;
 
 #[cfg(test)]

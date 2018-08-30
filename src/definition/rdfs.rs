@@ -1,4 +1,4 @@
-use definition::definition::Definition;
+use definition::Definition;
 
 const RDFS_NAMESPACE: &str = "http://www.w3.org/2000/01/rdf-schema#";
 

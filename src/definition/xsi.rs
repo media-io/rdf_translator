@@ -1,4 +1,4 @@
-use definition::definition::Definition;
+use definition::Definition;
 
 const XSI_NAMESPACE: &str = "http://www.w3.org/2001/XMLSchema-instance";
 
