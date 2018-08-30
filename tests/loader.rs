@@ -2,8 +2,8 @@ extern crate rdf_translator;
 #[macro_use]
 extern crate serde_json;
 
-use serde_json::Value;
 use rdf_translator::mapper::loader::*;
+use serde_json::Value;
 
 #[test]
 fn test_parse_label_null() {

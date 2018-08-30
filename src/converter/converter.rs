@@ -17,53 +17,39 @@ use rdf::writer::rdf_writer::RdfWriter;
 use rdf::writer::turtle_writer::TurtleWriter;
 
 macro_rules! build {
-    ($graph: expr, $namespace: expr, $label: expr) => {
+    ($graph:expr, $namespace:expr, $label:expr) => {
         $graph.add_namespace(&Namespace::new(
             $label.to_string(),
             Uri::new($namespace.to_owned()),
         ))
     };
-    (node => $graph: expr, $namespace: expr, $label: expr) => {
+    (node => $graph:expr, $namespace:expr, $label:expr) => {
         $graph.create_uri_node(&Uri::new(Definition::get_label($namespace, $label)))
     };
 }
 
 macro_rules! add {
-  (definition => $definition:expr, $graph:expr, $subject:expr, $label:expr, $object:block) => ({
-    let predicate_namespace = $definition;
-    let predicate = build!(node => $graph, &predicate_namespace, $label);
+    (definition => $definition:expr, $graph:expr, $subject:expr, $label:expr, $object:block) => {{
+        let predicate_namespace = $definition;
+        let predicate = build!(node => $graph, &predicate_namespace, $label);
 
-    let triple = Triple::new(&$subject, &predicate, &$object);
-    $graph.add_triple(&triple);
-  });
-  ($namespace:expr, $graph:expr, $subject:expr, $label:expr, $object:block) => ({
-    match $namespace.as_ref().map(|s| &s[..]) {
-      Some("ebucore") => {
-        add!(definition => EbuCore{}, $graph, $subject, $label, $object)
-      },
-      Some("francetv") => {
-        add!(definition => FranceTv{}, $graph, $subject, $label, $object)
-      },
-      Some("owl") => {
-        add!(definition => Owl{}, $graph, $subject, $label, $object)
-      },
-      Some("rdf") => {
-        add!(definition => Rdf{}, $graph, $subject, $label, $object)
-      },
-      Some("rdfs") => {
-        add!(definition => Rdfs{}, $graph, $subject, $label, $object)
-      },
-      Some("xsi") => {
-        add!(definition => Xsi{}, $graph, $subject, $label, $object)
-      },
-      None => {
-        add!(definition => Undefined{}, $graph, $subject, $label, $object)
-      },
-       _ => {
-        panic!("unable to process namespace {:?}", $namespace);
-      },
-    }
-  })
+        let triple = Triple::new(&$subject, &predicate, &$object);
+        $graph.add_triple(&triple);
+    }};
+    ($namespace:expr, $graph:expr, $subject:expr, $label:expr, $object:block) => {{
+        match $namespace.as_ref().map(|s| &s[..]) {
+            Some("ebucore") => add!(definition => EbuCore{}, $graph, $subject, $label, $object),
+            Some("francetv") => add!(definition => FranceTv{}, $graph, $subject, $label, $object),
+            Some("owl") => add!(definition => Owl{}, $graph, $subject, $label, $object),
+            Some("rdf") => add!(definition => Rdf{}, $graph, $subject, $label, $object),
+            Some("rdfs") => add!(definition => Rdfs{}, $graph, $subject, $label, $object),
+            Some("xsi") => add!(definition => Xsi{}, $graph, $subject, $label, $object),
+            None => add!(definition => Undefined{}, $graph, $subject, $label, $object),
+            _ => {
+                panic!("unable to process namespace {:?}", $namespace);
+            }
+        }
+    }};
 }
 
 #[derive(Debug)]
